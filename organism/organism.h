@@ -18,7 +18,7 @@ public:
     virtual InfoBundle bundleInfo();
 
 protected:
-    void die() { alive = false; }
+    void die();
 
 private:
     bool alive = true;

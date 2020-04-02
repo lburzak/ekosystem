@@ -33,6 +33,7 @@ void Simulation::tick() {
         assert (vicinity != nullptr);
 
         if ((*it)->isAlive()) {
+            Ekolog::getInstance().tick(*(*it));
             (*it)->onTick(*vicinity);
         } else {
             (*it)->onDecomposition();

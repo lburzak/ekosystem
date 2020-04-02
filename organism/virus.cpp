@@ -1,9 +1,8 @@
 #include "virus.h"
+#include "string"
 
 
 void Virus::onTick(Vicinity vicinity) {
-    cout << "virus tick: hasVictim=" << (victim != nullptr) << endl;
-
     if (victim == nullptr) attemptAttack(vicinity.getBodies());
     if (victim == nullptr) die();
 }
@@ -19,4 +18,10 @@ void Virus::attemptAttack(set<Body*> availableBodies) {
             break;
         }
     }
+}
+
+InfoBundle Virus::bundleInfo() {
+    InfoBundle bundle = Organism::bundleInfo();
+    bundle.set("hasVictim", to_string(victim != nullptr));
+    return bundle;
 }

@@ -4,10 +4,17 @@
 #include <logging/ekolog.h>
 
 
+void Organism::die() {
+    alive = false;
+    Ekolog::getInstance().death(*this);
+}
+
 void Organism::onDecomposition() {
     if (!isAlive() && mass > 0) {
-        mass--;
-        Ekolog::getInstance().organism(*this);
+        unsigned massBefore = mass;
+        unsigned massAfter = --mass;
+
+        Ekolog::getInstance().decomposing(*this, massBefore, massAfter);
     }
 }
 
