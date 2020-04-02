@@ -21,6 +21,9 @@ string InfoBundle::toString() {
         buf += (*it).first + "=" + (*it).second + ", ";
     }
 
+    buf.pop_back();
+    buf.pop_back();
+
     buf += "}";
 
     return buf;
