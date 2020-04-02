@@ -7,6 +7,9 @@ SOURCES += \
         body/body.cpp \
         body/bodyregistry.cpp \
         main.cpp \
+        organism/human.cpp \
+        organism/virus.cpp \
+        simulation/simulation.cpp \
         space/space.cpp \
         space/vicinity.cpp \
         space/vicinityprovider.cpp
@@ -14,6 +17,12 @@ SOURCES += \
 HEADERS += \
     body/body.h \
     body/bodyregistry.h \
+    organism/human.h \
+    organism/organism.h \
+    organism/virus.h \
+    simulation/entitytype.h \
+    simulation/simulation.h \
+    space/bodynotinspaceexception.h \
     space/coordinates.h \
     space/direction.h \
     space/space.h \

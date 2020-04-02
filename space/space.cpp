@@ -1,3 +1,4 @@
+#include "bodynotinspaceexception.h"
 #include "space.h"
 
 void Space::putAt(Body& body, int x, int y) {
@@ -28,5 +29,5 @@ Coordinates* Space::locate(unsigned bodyId) {
         }
     }
 
-    return nullptr;
+    throw BodyNotInSpaceException();
 }
