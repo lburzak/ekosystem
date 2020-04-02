@@ -17,10 +17,12 @@ int main() {
     VicinityProvider vicinityProvider(space);
     Simulation simulation(bodyRegistry, space, vicinityProvider);
 
-    simulation.spawn(EntityType::HUMAN, 1, 1);
+    simulation.spawn(EntityType::HUMAN, 1, 2);
     simulation.spawn(EntityType::VIRUS, 1, 1);
 
-    simulation.tick();
+    for (int i = 0; i <= 5; i++) {
+        simulation.tick();
+    }
 
     cout << "Hello World!" << endl;
     return 0;

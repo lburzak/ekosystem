@@ -11,6 +11,10 @@ public:
     virtual void onTick(Vicinity vicinity) = 0;
     void onDecomposition();
     bool isAlive() { return alive; };
+
+protected:
+    void die() { alive = false; }
+
 private:
     bool alive = true;
 };

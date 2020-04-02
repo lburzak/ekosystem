@@ -13,6 +13,7 @@ public:
     Virus() : Organism(2) {}
 private:
     void onTick(Vicinity vicinity) override;
+    void attemptAttack(set<Body*> availableBodies);
     void attack(Human* human);
     Human* victim = nullptr;
 };

@@ -42,9 +42,12 @@ void Simulation::tick() {
 }
 
 void Simulation::cleanUp() {
-    for (auto it = organisms.begin(); it != organisms.end(); it++) {
+    for (auto it = organisms.begin(); it != organisms.end();) {
         if ((*it)->getMass() == 0) {
-            organisms.erase(it);
+            cout << "DECOMPOSED" << endl;
+            it = organisms.erase(it);
+        } else {
+            it++;
         }
     }
 }
