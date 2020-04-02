@@ -26,11 +26,25 @@ void Simulation::spawn(EntityType type, int x, int y) {
 };
 
 void Simulation::tick() {
-
     for (auto it = organisms.begin(); it != organisms.end(); it++) {
         Vicinity* vicinity = vicinityProvider.provideFor(*dynamic_cast<Body*>(*it));
 
         assert (vicinity != nullptr);
-        (*it)->onTick(*vicinity);
+
+        if ((*it)->isAlive()) {
+            (*it)->onTick(*vicinity);
+        } else {
+            (*it)->onDecomposition();
+        }
+    }
+
+    cleanUp();
+}
+
+void Simulation::cleanUp() {
+    for (auto it = organisms.begin(); it != organisms.end(); it++) {
+        if ((*it)->getMass() == 0) {
+            organisms.erase(it);
+        }
     }
 }

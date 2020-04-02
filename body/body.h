@@ -14,10 +14,13 @@ public:
     }
 
     unsigned getId();
+    unsigned getMass();
+
+protected:
+    unsigned mass;
 
 private:
     unsigned id;
-    unsigned mass;
 
     /**
      * @brief Makes class polymorphic (allows for dynamic casting)

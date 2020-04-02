@@ -26,6 +26,7 @@ private:
     std::set<Organism*> organisms;
 
     void addOrganism(Organism* organism, int x, int y);
+    void cleanUp();
 };
 
 #endif // SIMULATION_H

@@ -3,3 +3,7 @@
 unsigned Body::getId() {
     return id;
 }
+
+unsigned Body::getMass() {
+    return mass;
+}

@@ -8,6 +8,7 @@ SOURCES += \
         body/bodyregistry.cpp \
         main.cpp \
         organism/human.cpp \
+        organism/organism.cpp \
         organism/virus.cpp \
         simulation/simulation.cpp \
         space/space.cpp \
