@@ -9,28 +9,15 @@
 
 class Vicinity {
 public:
-    Vicinity(Space& space, int x, int y, unsigned ownerBodyId) : space(space) {
-        this->x = x;
-        this->y = y;
-        this->ownerBodyId = ownerBodyId;
-    }
+    Vicinity(Space& space, int x, int y, unsigned ownerBodyId)
+        : space{ space },
+          x{ x },
+          y{ y },
+          ownerBodyId{ ownerBodyId }
+    {}
 
-    bool canMoveTo(Direction direction) {
-        return direction == Direction::UP;
-    }
-
-    std::set<Body*> getBodies() {
-        std::set<Body*> bodies = space.getBodiesAt(x, y);
-
-        for (auto it = bodies.begin(); it != bodies.end(); it++) {
-            if ((*it)->getId() == ownerBodyId) {
-                bodies.erase(it);
-                break;
-            }
-        }
-
-        return bodies;
-    };
+    bool canMoveTo(Direction direction);
+    std::set<Body*> getBodies();
 
 private:
     Space& space;

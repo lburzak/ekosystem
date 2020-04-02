@@ -8,18 +8,8 @@
 
 class BodyRegistry {
 public:
-    Body* fetch(unsigned id) {
-        auto it = idToBody.find(id);
-
-        if (it != idToBody.end()) {
-            return it->second;
-        } else exit(70);
-    }
-
-    void registerBody(Body& body) {
-        body.id = lastId++;
-        idToBody.insert(std::make_pair(body.getId(), &body));
-    }
+    Body* fetch(unsigned id);
+    void registerBody(Body& body);
 
 private:
     unsigned lastId = 0;

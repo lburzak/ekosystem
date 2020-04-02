@@ -8,9 +8,7 @@ public:
         return id < right.id;
     }
 
-    unsigned getId() {
-        return id;
-    }
+    unsigned getId();
 
     virtual void _() {};
 private:
