@@ -6,6 +6,7 @@ CONFIG -= qt
 SOURCES += \
         body/body.cpp \
         body/bodyregistry.cpp \
+        logging/ekolog.cpp \
         main.cpp \
         organism/human.cpp \
         organism/organism.cpp \
@@ -18,6 +19,7 @@ SOURCES += \
 HEADERS += \
     body/body.h \
     body/bodyregistry.h \
+    logging/ekolog.h \
     organism/human.h \
     organism/organism.h \
     organism/virus.h \

@@ -1,10 +1,12 @@
 #include "iostream"
 #include "organism.h"
 
+#include <logging/ekolog.h>
+
 
 void Organism::onDecomposition() {
     if (!isAlive() && mass > 0) {
         mass--;
-        std::cout << "massleft=" << mass << std::endl;
+        Ekolog::getInstance().organism(*this);
     }
 }

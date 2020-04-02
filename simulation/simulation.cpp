@@ -2,6 +2,7 @@
 #include <organism/human.h>
 #include <organism/virus.h>
 #include <assert.h>
+#include <logging/ekolog.h>
 
 void Simulation::addOrganism(Organism* organism, int x, int y) {
     bodyRegistry.registerBody(*organism);
@@ -44,7 +45,7 @@ void Simulation::tick() {
 void Simulation::cleanUp() {
     for (auto it = organisms.begin(); it != organisms.end();) {
         if ((*it)->getMass() == 0) {
-            cout << "DECOMPOSED" << endl;
+            Ekolog::getInstance().decomposed(*(*it));
             it = organisms.erase(it);
         } else {
             it++;
