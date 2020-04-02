@@ -1,0 +1,2 @@
+#include "vicinityprovider.h"
+
