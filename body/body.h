@@ -3,6 +3,9 @@
 
 
 class Body {
+    friend class BodyRegistry;
+    friend class VicinityProvider;
+
 public:
     bool operator< (const Body &right) const {
         return id < right.id;
@@ -10,12 +13,13 @@ public:
 
     unsigned getId();
 
-    virtual void _() {};
 private:
     unsigned id;
 
-    friend class BodyRegistry;
-    friend class VicinityProvider;
+    /**
+     * @brief Makes class polymorphic (allows for dynamic casting)
+     */
+    virtual void _() {};
 };
 
 #endif // BODY_H

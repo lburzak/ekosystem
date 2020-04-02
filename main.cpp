@@ -21,6 +21,7 @@ public:
         for (auto it = bodies.begin(); it != bodies.end(); it++) {
             if (Human* human = dynamic_cast<Human*>(*it)) {
                 attack(human);
+                human->eat();
             }
         }
     }
