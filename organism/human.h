@@ -9,6 +9,7 @@ using namespace std;
 
 class Human : public Organism {
 public:
+    Human() : Organism(1000) {}
     void onTick(Vicinity vicinity) override;
     void eat();
 };

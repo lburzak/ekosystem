@@ -9,6 +9,8 @@
 
 
 class Virus : public Organism {
+public:
+    Virus() : Organism(2) {}
 private:
     void onTick(Vicinity vicinity) override;
     void attack(Human* human);

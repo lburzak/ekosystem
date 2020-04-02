@@ -7,6 +7,7 @@
 
 class Organism : public Body {
 public:
+    Organism(unsigned mass) : Body(mass) {}
     virtual void onTick(Vicinity vicinity) = 0;
 };
 

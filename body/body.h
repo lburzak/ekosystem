@@ -7,6 +7,8 @@ class Body {
     friend class VicinityProvider;
 
 public:
+    Body(unsigned mass) : mass(mass) {}
+
     bool operator< (const Body &right) const {
         return id < right.id;
     }
@@ -15,6 +17,7 @@ public:
 
 private:
     unsigned id;
+    unsigned mass;
 
     /**
      * @brief Makes class polymorphic (allows for dynamic casting)
