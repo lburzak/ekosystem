@@ -10,3 +10,12 @@ void Organism::onDecomposition() {
         Ekolog::getInstance().organism(*this);
     }
 }
+
+InfoBundle Organism::bundleInfo() {
+    InfoBundle bundle;
+
+    bundle.set("alive", to_string(alive));
+    bundle.set("massLeft", to_string(mass));
+
+    return bundle;
+}

@@ -1,8 +1,12 @@
 #ifndef ORGANISM_H
 #define ORGANISM_H
 
-#include <space/vicinity.h>
+#include "infobundle.h"
 
+#include <space/vicinity.h>
+#include <string>
+
+using namespace std;
 
 
 class Organism : public Body {
@@ -11,6 +15,7 @@ public:
     virtual void onTick(Vicinity vicinity) = 0;
     void onDecomposition();
     bool isAlive() { return alive; };
+    virtual InfoBundle bundleInfo();
 
 protected:
     void die() { alive = false; }

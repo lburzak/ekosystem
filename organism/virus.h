@@ -11,6 +11,9 @@
 class Virus : public Organism {
 public:
     Virus() : Organism(2) {}
+    virtual InfoBundle bundleInfo() override {
+        return Organism::bundleInfo();
+    };
 private:
     void onTick(Vicinity vicinity) override;
     void attemptAttack(set<Body*> availableBodies);

@@ -9,6 +9,7 @@ SOURCES += \
         logging/ekolog.cpp \
         main.cpp \
         organism/human.cpp \
+        organism/infobundle.cpp \
         organism/organism.cpp \
         organism/virus.cpp \
         simulation/simulation.cpp \
@@ -21,6 +22,7 @@ HEADERS += \
     body/bodyregistry.h \
     logging/ekolog.h \
     organism/human.h \
+    organism/infobundle.h \
     organism/organism.h \
     organism/virus.h \
     simulation/entitytype.h \

@@ -15,7 +15,7 @@ Ekolog& Ekolog::getInstance() {
 }
 
 void Ekolog::organism(Organism& organism) {
-    cout << organism.getId() << ": " << "alive=" << organism.isAlive() << ", massLeft=" << organism.getMass() << endl;
+    cout << organism.getId() << ": " << organism.bundleInfo().toString() << endl;
 }
 
 void Ekolog::decomposed(Organism& organism) {
