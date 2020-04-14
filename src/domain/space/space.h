@@ -17,12 +17,12 @@ public:
     std::set<Body*> getBodiesAt(int x, int y);
     Coordinates* locate(unsigned bodyId);
 
+    static int const WIDTH = 10;
+    static int const HEIGHT = 10;
 private:
-    static int const SPACE_WIDTH = 10;
-    static int const SPACE_HEIGHT = 10;
 
     BodyRegistry& registry;
-    std::set<unsigned> idsMatrix[SPACE_WIDTH][SPACE_HEIGHT];
+    std::set<unsigned> idsMatrix[WIDTH][HEIGHT];
 };
 
 #endif // SPACE_H

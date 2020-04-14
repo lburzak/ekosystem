@@ -40,7 +40,7 @@ add_executable(ekosystem
         src/domain/space/direction.h
         src/domain/space/space.h
         src/domain/space/vicinity.h
-        src/domain/space/vicinityprovider.h)
+        src/domain/space/vicinityprovider.h src/presentation/presenter/SpaceGridPresenter.h src/presentation/presenter/SpaceGridPresenter.cpp src/presentation/state/ApplicationState.h src/presentation/state/ApplicationEvent.h src/presentation/state/ApplicationEventListener.h src/presentation/state/ApplicationStore.cpp src/presentation/state/ApplicationStore.h src/presentation/view/SpaceGridView.h)
 
 target_include_directories(ekosystem PUBLIC src)
 

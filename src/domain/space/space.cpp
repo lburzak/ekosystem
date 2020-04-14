@@ -19,8 +19,8 @@ std::set<Body*> Space::getBodiesAt(int x, int y) {
 }
 
 Coordinates* Space::locate(unsigned bodyId) {
-    for (int x = 0; x < Space::SPACE_WIDTH; x++) {
-        for (int y = 0; y < Space::SPACE_HEIGHT; y++) {
+    for (int x = 0; x < Space::WIDTH; x++) {
+        for (int y = 0; y < Space::HEIGHT; y++) {
             if (idsMatrix[x][y].find(bodyId) != idsMatrix[x][y].end()) {
                 Coordinates* coords = new Coordinates();
                 coords->x = x;
