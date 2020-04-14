@@ -10,6 +10,7 @@ void ApplicationStore::subscribe(ApplicationEventListener *listener) {
 
 void ApplicationStore::setSelectedTile(int index) {
     state.selectedTile = index;
+    emitEvent(TILE_SELECTED);
 }
 
 void ApplicationStore::emitEvent(ApplicationEvent event) {
