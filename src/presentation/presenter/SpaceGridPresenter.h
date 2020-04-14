@@ -6,7 +6,7 @@
 #define EKOSYSTEM_SPACEGRIDPRESENTER_H
 
 
-#include <src/presentation/view/SpaceGridView.h>
+#include "presentation/view/SpaceGridView.h"
 #include "presentation/state/ApplicationStore.h"
 #include "domain/space/space.h"
 
@@ -16,7 +16,7 @@ public:
     :   store(applicationStore),
         space(space) {}
 
-    unsigned getTilesCount();
+    int getTilesCount();
     unsigned getOrganismsCountAt(int index);
     bool isSelected(int index);
 

@@ -2,11 +2,12 @@
 #include "domain/body/bodyregistry.h"
 #include "domain/space/space.h"
 #include "domain/simulation/simulation.h"
+#include "app/QtApplication.h"
 
 using namespace std;
 
 
-int main() {
+int main(int argc, char *argv[]) {
     BodyRegistry bodyRegistry;
     Space space(bodyRegistry);
     VicinityProvider vicinityProvider(space);
@@ -19,6 +20,9 @@ int main() {
         simulation.tick();
     }
 
+    ApplicationStore applicationStore;
+    SpaceGridPresenter spaceGridPresenter(applicationStore, space);
+
     cout << "Hello World!" << endl;
-    return 0;
+    return QtApplication::run(argc, argv, spaceGridPresenter);
 }

@@ -9,7 +9,7 @@ Coordinates indexToCoordinates(int index) {
     return { index % Space::WIDTH, index / Space::WIDTH };
 }
 
-unsigned SpaceGridPresenter::getTilesCount() {
+int SpaceGridPresenter::getTilesCount() {
     return Space::WIDTH * Space::HEIGHT;
 }
 
@@ -34,9 +34,9 @@ void SpaceGridPresenter::attach(SpaceGridView *view) {
 void SpaceGridPresenter::onEvent(ApplicationEvent event) {
     switch (event) {
         case ApplicationEvent::TILE_SELECTED:
-            view->onTileChange(currentTile);
+            view->onTileSelectedChange(currentTile);
             currentTile = store.getState().selectedTile;
-            view->onTileChange(currentTile);
+            view->onTileSelectedChange(currentTile);
         break;
     }
 }
