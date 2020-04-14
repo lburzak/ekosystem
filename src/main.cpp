@@ -1,12 +1,7 @@
 #include <iostream>
-#include <set>
-#include <map>
-#include <space/vicinity.h>
-#include <space/vicinityprovider.h>
-#include <simulation/simulation.h>
-#include "body/body.h"
-#include "body/bodyregistry.h"
-#include "space/space.h"
+#include "domain/body/bodyregistry.h"
+#include "domain/space/space.h"
+#include "domain/simulation/simulation.h"
 
 using namespace std;
 

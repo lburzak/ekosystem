@@ -1,7 +1,7 @@
 #ifndef EKOLOG_H
 #define EKOLOG_H
 
-#include <organism/organism.h>
+#include "domain/organism/organism.h"
 
 
 

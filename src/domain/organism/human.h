@@ -3,7 +3,7 @@
 
 #include "organism.h"
 #include <iostream>
-#include <body/body.h>
+#include "domain/body/body.h"
 
 using namespace std;
 

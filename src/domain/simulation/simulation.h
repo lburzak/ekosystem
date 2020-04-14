@@ -2,10 +2,10 @@
 #define SIMULATION_H
 
 #include "entitytype.h"
-#include <body/bodyregistry.h>
-#include <organism/organism.h>
-#include <space/space.h>
-#include <space/vicinityprovider.h>
+#include "domain/body/bodyregistry.h"
+#include "domain/space/space.h"
+#include "domain/space/vicinityprovider.h"
+#include "domain/organism/organism.h"
 
 
 class Simulation {

@@ -3,8 +3,9 @@
 
 #include "infobundle.h"
 
-#include <space/vicinity.h>
 #include <string>
+#include "domain/body/body.h"
+#include "domain/space/vicinity.h"
 
 using namespace std;
 

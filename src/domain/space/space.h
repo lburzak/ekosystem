@@ -3,8 +3,8 @@
 
 #include "coordinates.h"
 
-#include <body/bodyregistry.h>
-#include <body/body.h>
+#include "domain/body/body.h"
+#include "domain/body/bodyregistry.h"
 #include <set>
 
 

@@ -3,9 +3,7 @@
 
 #include "human.h"
 #include "organism.h"
-#include <body/body.h>
-#include <space/vicinity.h>
-
+#include "domain/body/body.h"
 
 
 class Virus : public Organism {

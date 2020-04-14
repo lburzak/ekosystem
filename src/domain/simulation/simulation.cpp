@@ -1,8 +1,10 @@
 #include "simulation.h"
-#include <organism/human.h>
-#include <organism/virus.h>
-#include <assert.h>
-#include <logging/ekolog.h>
+#include "domain/organism/organism.h"
+#include "domain/organism/virus.h"
+#include "domain/organism/human.h"
+#include "domain/logging/ekolog.h"
+#include <cassert>
+
 
 void Simulation::addOrganism(Organism* organism, int x, int y) {
     bodyRegistry.registerBody(*organism);

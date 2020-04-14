@@ -1,7 +1,7 @@
 #include "iostream"
 #include "organism.h"
 
-#include <logging/ekolog.h>
+#include "domain/logging/ekolog.h"
 
 
 void Organism::die() {

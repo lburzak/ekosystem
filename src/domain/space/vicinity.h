@@ -3,7 +3,7 @@
 
 #include "direction.h"
 #include "space.h"
-#include "body/body.h"
+#include "domain/body/body.h"
 #include <set>
 
 

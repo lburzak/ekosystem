@@ -1,5 +1,6 @@
 #include "bodynotinspaceexception.h"
 #include "space.h"
+#include "domain/body/body.h"
 
 void Space::putAt(Body& body, int x, int y) {
     idsMatrix[x][y].insert(body.getId());
