@@ -2,5 +2,6 @@
     <qresource prefix="/src/app/qml/">
         <file>main.qml</file>
         <file>SpaceGrid.qml</file>
+        <file>OrganismsList.qml</file>
     </qresource>
 </RCC>

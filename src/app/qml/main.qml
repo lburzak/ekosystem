@@ -12,5 +12,5 @@ Window {
     title: qsTr("Hello World")
 
     SpaceGrid {}
-
+    OrganismsList {}
 }

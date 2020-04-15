@@ -2,6 +2,7 @@
 #include "domain/body/bodyregistry.h"
 #include "domain/space/space.h"
 #include "domain/simulation/simulation.h"
+#include "presentation/presenter/OrganismsListPresenter.h"
 #include "app/QtApplication.h"
 
 using namespace std;
@@ -22,7 +23,8 @@ int main(int argc, char *argv[]) {
 
     ApplicationStore applicationStore;
     SpaceGridPresenter spaceGridPresenter(applicationStore, space);
+    OrganismsListPresenter organismsListPresenter(space, applicationStore);
 
     cout << "Hello World!" << endl;
-    return QtApplication::run(argc, argv, spaceGridPresenter);
+    return QtApplication::run(argc, argv, spaceGridPresenter, organismsListPresenter);
 }

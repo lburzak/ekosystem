@@ -10,7 +10,8 @@
 
 class QtApplication {
 public:
-    static int run(int argc, char *argv[], SpaceGridPresenter& spaceGridPresenter);
+    static int run(int argc, char **argv, SpaceGridPresenter &spaceGridPresenter,
+                   OrganismsListPresenter &organismsListPresenter);
 };
 
 
