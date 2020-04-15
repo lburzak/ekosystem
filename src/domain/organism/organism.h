@@ -18,6 +18,7 @@ public:
     bool isAlive() { return alive; };
     virtual InfoBundle bundleInfo();
 
+    const static char* BUNDLE_LABEL_SPECIES;
 protected:
     void die();
 

@@ -3,6 +3,7 @@
 
 #include "domain/logging/ekolog.h"
 
+const char* Organism::BUNDLE_LABEL_SPECIES = "species";
 
 void Organism::die() {
     alive = false;
@@ -23,6 +24,7 @@ InfoBundle Organism::bundleInfo() {
 
     bundle.set("alive", to_string(alive));
     bundle.set("massLeft", to_string(mass));
+    bundle.set(BUNDLE_LABEL_SPECIES, "Uncategorized");
 
     return bundle;
 }

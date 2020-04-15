@@ -4,10 +4,7 @@
 
 #include "SpaceGridPresenter.h"
 #include "domain/space/space.h"
-
-Coordinates indexToCoordinates(int index) {
-    return { index % Space::WIDTH, index / Space::WIDTH };
-}
+#include "presentation/common/GridUtils.h"
 
 int SpaceGridPresenter::getTilesCount() {
     return Space::WIDTH * Space::HEIGHT;
