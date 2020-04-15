@@ -25,6 +25,8 @@ public:
     OrganismsListPresenterAdapter* presenter() const;
     void setPresenter(OrganismsListPresenterAdapter* presenter);
 
+    void onOrganismSelectedChange(int index) override;
+
     void reloadList() override;
 
 private:
@@ -32,7 +34,8 @@ private:
 
     enum Role {
         OrganismId = Qt::UserRole,
-        Species
+        Species,
+        Selected
     };
 };
 

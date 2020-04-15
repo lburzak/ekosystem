@@ -21,6 +21,8 @@ QVariant OrganismsListModel::data(const QModelIndex &index, int role) const {
                 return QVariant(entry.id);
             case Species:
                 return QVariant(QString::fromStdString(entry.type));
+            case Selected:
+                return QVariant(_presenter->isSelected(index.row()));
         }
     }
 
@@ -32,6 +34,7 @@ QHash<int, QByteArray> OrganismsListModel::roleNames() const {
 
     names.insert(OrganismId, "organismId");
     names.insert(Species, "species");
+    names.insert(Selected, "selected");
 
     return names;
 }
@@ -48,4 +51,9 @@ void OrganismsListModel::setPresenter(OrganismsListPresenterAdapter *presenter) 
 void OrganismsListModel::reloadList() {
     beginResetModel();
     endResetModel();
+}
+
+void OrganismsListModel::onOrganismSelectedChange(int index) {
+    QModelIndex linearIndex = createIndex(index, 0);
+    dataChanged(linearIndex, linearIndex, QVector<int>() << Selected);
 }

@@ -15,16 +15,28 @@ Frame {
             presenter: organismsListPresenter
         }
 
-        delegate: RowLayout {
+        delegate: Frame {
             height: 40
-            anchors.fill: parent
-
-            Text {
-                text: model.organismId
+            width: parent.width
+            Rectangle {
+                visible: model.selected
+                color: "green"
+                anchors.fill: parent
             }
 
-            Text {
-                text: model.species
+            RowLayout {
+                Text {
+                    text: model.organismId
+                }
+
+                Text {
+                    text: model.species
+                }
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: () => { organismsListPresenter.select(index) }
             }
         }
     }

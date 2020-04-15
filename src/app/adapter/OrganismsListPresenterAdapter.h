@@ -14,8 +14,11 @@ class OrganismsListPresenterAdapter : public QObject {
 public:
     OrganismsListPresenterAdapter(OrganismsListPresenter& presenter) : presenter(presenter) {};
 
-    Q_INVOKABLE int getSize() { return presenter.getSize(); }
-    Q_INVOKABLE OrganismEntry entryAt(int index) { return presenter.entryAt(index); }
+    int getSize() { return presenter.getSize(); }
+    OrganismEntry entryAt(int index) { return presenter.entryAt(index); }
+    bool isSelected(int index) { return presenter.isSelected(index); };
+    Q_INVOKABLE void select(int index) { presenter.select(index); };
+
     void attach(OrganismsListView* view) { presenter.attach(view); }
 private:
     OrganismsListPresenter& presenter;
