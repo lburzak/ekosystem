@@ -22,6 +22,8 @@ public:
 
     int getSize();
     OrganismEntry entryAt(int index);
+    bool isSelected(int index);
+    void select(int index);
 
     void attach(OrganismsListView* view);
 
@@ -31,6 +33,8 @@ private:
     Space& space;
     ApplicationStore& store;
     OrganismsListView* view;
+
+    int currentOrganism = store.getState().selectedOrganism;
 };
 
 

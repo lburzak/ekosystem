@@ -8,6 +8,7 @@
 class OrganismsListView {
 public:
     virtual void reloadList() = 0;
+    virtual void onOrganismSelectedChange(int index) = 0;
 };
 
 #endif //EKOSYSTEM_ORGANISMSLISTVIEW_H

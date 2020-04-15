@@ -45,5 +45,18 @@ void OrganismsListPresenter::onEvent(ApplicationEvent event) {
         case TILE_SELECTED:
             if (view)
                 view->reloadList();
+        case ORGANISM_SELECTED:
+            if (view)
+                view->onOrganismSelectedChange(currentOrganism);
+                currentOrganism = store.getState().selectedOrganism;
+                view->onOrganismSelectedChange(currentOrganism);
     }
+}
+
+bool OrganismsListPresenter::isSelected(int index) {
+    return store.getState().selectedOrganism == index;
+}
+
+void OrganismsListPresenter::select(int index) {
+    store.setSelectedTile(index);
 }
