@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/src/app/qml/">
         <file>main.qml</file>
+        <file>SpaceGrid.qml</file>
     </qresource>
 </RCC>
