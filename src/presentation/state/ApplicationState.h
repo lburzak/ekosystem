@@ -8,6 +8,7 @@
 
 struct ApplicationState {
     int selectedTile = -1;
+    int selectedOrganism = -1;
 };
 
 

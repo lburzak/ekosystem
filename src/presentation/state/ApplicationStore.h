@@ -15,6 +15,7 @@ public:
     void subscribe(ApplicationEventListener* listener);
     ApplicationState getState();
     void setSelectedTile(int index);
+    void setSelectedOrganism(int index);
 
 private:
     ApplicationState state;

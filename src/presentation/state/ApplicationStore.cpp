@@ -13,6 +13,10 @@ void ApplicationStore::setSelectedTile(int index) {
     emitEvent(TILE_SELECTED);
 }
 
+void ApplicationStore::setSelectedOrganism(int index) {
+    state.selectedOrganism = index;
+}
+
 void ApplicationStore::emitEvent(ApplicationEvent event) {
     for (auto listener : listeners) {
         listener->onEvent(event);
