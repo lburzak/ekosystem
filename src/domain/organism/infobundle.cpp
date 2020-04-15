@@ -28,3 +28,13 @@ string InfoBundle::toString() {
 
     return buf;
 }
+
+std::set<string> InfoBundle::keys() {
+    std::set<string> k;
+
+    for (const auto& entry : data) {
+        k.insert(entry.first);
+    }
+
+    return k;
+}

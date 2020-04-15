@@ -3,6 +3,7 @@
 
 #include <string>
 #include <map>
+#include <set>
 
 using namespace std;
 
@@ -12,6 +13,7 @@ public:
     void set(string key, string value);
     string get(string key);
     string toString();
+    std::set<string> keys();
 
 private:
     map<string, string> data;
