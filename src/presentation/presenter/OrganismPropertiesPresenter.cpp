@@ -13,15 +13,23 @@ OrganismPropertiesPresenter::OrganismPropertiesPresenter(ApplicationStore &store
     : store(store), space(space) {}
 
 int OrganismPropertiesPresenter::getCount() {
-    InfoBundle bundle =
-        fetchOrganismAt(space, store.getState().selectedTile, store.getState().selectedOrganism)->bundleInfo();
+    Organism* organism = fetchOrganismAt(space, store.getState().selectedTile, store.getState().selectedOrganism);
+
+    if (!organism)
+        return 0;
+
+    InfoBundle bundle = organism->bundleInfo();
 
     return bundle.keys().size();
 }
 
 OrganismProperty OrganismPropertiesPresenter::getPropertyAt(int index) {
-    InfoBundle bundle =
-            fetchOrganismAt(space, store.getState().selectedTile, store.getState().selectedOrganism)->bundleInfo();
+    Organism* organism = fetchOrganismAt(space, store.getState().selectedTile, store.getState().selectedOrganism);
+
+    if (!organism)
+        return noProperty();
+
+    InfoBundle bundle = organism->bundleInfo();
 
     std::set<string> keys = bundle.keys();
     auto it = keys.begin();

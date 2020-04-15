@@ -3,13 +3,15 @@
 //
 
 #include "domain/organism/organism.h"
-#include "presentation/common/GridUtils.h"
 
 Coordinates indexToCoordinates(int index) {
     return { index % Space::WIDTH, index / Space::WIDTH };
 }
 
 Organism* fetchOrganismAt(Space& space, int tileIndex, int organismIndex) {
+    if (organismIndex < 0 or tileIndex < 0)
+        return nullptr;
+
     Coordinates coords = indexToCoordinates(tileIndex);
     set<Body*> bodies = space.getBodiesAt(coords.x, coords.y);
 
