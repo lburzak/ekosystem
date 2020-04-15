@@ -10,9 +10,20 @@ OrganismEntry defaultEntry() {
     return { 0, "NO_SUCH_ORGANISM" };
 }
 
+bool isAnyTileSelected(ApplicationState state) {
+    return state.selectedTile != -1;
+}
+
+OrganismsListPresenter::OrganismsListPresenter(Space &space, ApplicationStore &store)
+        : space(space), store(store) {}
+
 int OrganismsListPresenter::getSize() {
-    Coordinates coords = indexToCoordinates(store.getState().selectedTile);
-    return space.getBodiesAt(coords.x, coords.y).size();
+    if (isAnyTileSelected(store.getState())) {
+        Coordinates coords = indexToCoordinates(store.getState().selectedTile);
+        return space.getBodiesAt(coords.x, coords.y).size();
+    } else {
+        return 0;
+    }
 }
 
 OrganismEntry OrganismsListPresenter::entryAt(int index) {
