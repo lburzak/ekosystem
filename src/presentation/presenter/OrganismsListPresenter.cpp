@@ -42,3 +42,16 @@ OrganismEntry OrganismsListPresenter::entryAt(int index) {
     else
         return defaultEntry();
 }
+
+void OrganismsListPresenter::attach(OrganismsListView *view) {
+    this->view = view;
+    store.subscribe(this);
+}
+
+void OrganismsListPresenter::onEvent(ApplicationEvent event) {
+    switch (event) {
+        case TILE_SELECTED:
+            if (view)
+                view->reloadList();
+    }
+}

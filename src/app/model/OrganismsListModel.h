@@ -7,9 +7,10 @@
 
 
 #include <QtCore/QAbstractListModel>
+#include "presentation/view/OrganismsListView.h"
 #include "app/adapter/OrganismsListPresenterAdapter.h"
 
-class OrganismsListModel : public QAbstractListModel {
+class OrganismsListModel : public QAbstractListModel, public OrganismsListView {
     Q_OBJECT
     Q_PROPERTY(OrganismsListPresenterAdapter* presenter READ presenter WRITE setPresenter)
 
@@ -23,6 +24,8 @@ public:
 
     OrganismsListPresenterAdapter* presenter() const;
     void setPresenter(OrganismsListPresenterAdapter* presenter);
+
+    void reloadList() override;
 
 private:
     OrganismsListPresenterAdapter* _presenter;

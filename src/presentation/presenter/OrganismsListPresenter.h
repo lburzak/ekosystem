@@ -7,23 +7,30 @@
 
 #include <string>
 #include "domain/space/space.h"
+#include "presentation/state/ApplicationEventListener.h"
 #include "presentation/state/ApplicationStore.h"
+#include "presentation/view/OrganismsListView.h"
 
 struct OrganismEntry {
     unsigned id;
     std::string type;
 };
 
-class OrganismsListPresenter {
+class OrganismsListPresenter : public ApplicationEventListener {
 public:
     OrganismsListPresenter(Space& space, ApplicationStore& store);
 
     int getSize();
     OrganismEntry entryAt(int index);
 
+    void attach(OrganismsListView* view);
+
+    void onEvent(ApplicationEvent event) override;
+
 private:
     Space& space;
     ApplicationStore& store;
+    OrganismsListView* view;
 };
 
 
