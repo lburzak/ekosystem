@@ -15,6 +15,7 @@ void ApplicationStore::setSelectedTile(int index) {
 
 void ApplicationStore::setSelectedOrganism(int index) {
     state.selectedOrganism = index;
+    emitEvent(ORGANISM_SELECTED);
 }
 
 void ApplicationStore::emitEvent(ApplicationEvent event) {
