@@ -8,8 +8,9 @@
 
 #include <QtCore/QAbstractListModel>
 #include "app/adapter/OrganismPropertiesPresenterAdapter.h"
+#include "presentation/view/OrganismPropertiesView.h"
 
-class OrganismPropertiesModel : public QAbstractListModel {
+class OrganismPropertiesModel : public QAbstractListModel, public OrganismPropertiesView  {
     Q_OBJECT
     Q_PROPERTY(OrganismPropertiesPresenterAdapter* presenter READ presenter WRITE setPresenter)
 public:
@@ -21,6 +22,8 @@ public:
 
     OrganismPropertiesPresenterAdapter* presenter() const;
     void setPresenter(OrganismPropertiesPresenterAdapter *presenter);
+
+    void reloadList() override;
 
 private:
     enum Role {

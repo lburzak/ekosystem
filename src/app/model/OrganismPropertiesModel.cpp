@@ -39,4 +39,10 @@ OrganismPropertiesPresenterAdapter *OrganismPropertiesModel::presenter() const {
 
 void OrganismPropertiesModel::setPresenter(OrganismPropertiesPresenterAdapter *presenter) {
     _presenter = presenter;
+    presenter->attach(this);
+}
+
+void OrganismPropertiesModel::reloadList() {
+    beginResetModel();
+    endResetModel();
 }

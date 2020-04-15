@@ -16,6 +16,7 @@ public:
     explicit OrganismPropertiesPresenterAdapter(OrganismPropertiesPresenter& presenter) : presenter(presenter) {};
     int getCount() { return presenter.getCount(); };
     OrganismProperty getPropertyAt(int index) { return presenter.getPropertyAt(index); };
+    void attach(OrganismPropertiesView* view) { presenter.attach(view); }
 
 private:
     OrganismPropertiesPresenter& presenter;

@@ -34,3 +34,15 @@ OrganismProperty OrganismPropertiesPresenter::getPropertyAt(int index) {
 
     return { *it, bundle.get(*it) };
 }
+
+void OrganismPropertiesPresenter::attach(OrganismPropertiesView *view) {
+    this->view = view;
+    store.subscribe(this);
+}
+
+void OrganismPropertiesPresenter::onEvent(ApplicationEvent event) {
+    switch (event) {
+        case ORGANISM_SELECTED:
+            if (view) view->reloadList();
+    }
+}
