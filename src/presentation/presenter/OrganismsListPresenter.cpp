@@ -27,17 +27,9 @@ int OrganismsListPresenter::getSize() {
 }
 
 OrganismEntry OrganismsListPresenter::entryAt(int index) {
-    Coordinates coords = indexToCoordinates(store.getState().selectedTile);
-    std::set<Body*> bodies = space.getBodiesAt(coords.x, coords.y);
+    Organism* organism = fetchOrganismAt(space, store.getState().selectedTile, index);
 
-    auto it = bodies.begin();
-    for (int i = 0; i < index; i++)
-        if (it == bodies.end())
-            return defaultEntry();
-        else
-            it++;
-
-    if (auto* organism = dynamic_cast<Organism*>((*it)))
+    if (organism)
         return { organism->getId(), organism->bundleInfo().get(Organism::BUNDLE_LABEL_SPECIES) };
     else
         return defaultEntry();

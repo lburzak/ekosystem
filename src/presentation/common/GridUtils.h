@@ -6,7 +6,9 @@
 #define EKOSYSTEM_GRIDUTILS_H
 
 #include "domain/space/space.h"
+#include "domain/organism/organism.h"
 
 Coordinates indexToCoordinates(int index);
+Organism* fetchOrganismAt(Space& space, int tileIndex, int organismIndex);
 
 #endif //EKOSYSTEM_GRIDUTILS_H
