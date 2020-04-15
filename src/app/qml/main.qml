@@ -11,10 +11,15 @@ Window {
     height: 480
     title: qsTr("Hello World")
 
-    RowLayout {
-        SpaceGrid {}
-        OrganismsList {
-            Layout.fillHeight: true
+    ColumnLayout {
+        RowLayout {
+            SpaceGrid {}
+            OrganismsList {
+                Layout.fillHeight: true
+            }
         }
+
+        PropertiesList {}
     }
+
 }
