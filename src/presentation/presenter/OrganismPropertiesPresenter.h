@@ -21,6 +21,8 @@ public:
     OrganismPropertiesPresenter(ApplicationStore& store, Space& space);
 
     int getCount();
+    unsigned getId();
+    bool hasSelectedOrganism();
     OrganismProperty getPropertyAt(int index);
 
     void attach(OrganismPropertiesView *view);

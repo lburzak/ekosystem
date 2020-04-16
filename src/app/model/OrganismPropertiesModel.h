@@ -32,6 +32,8 @@ private:
     };
 
     OrganismPropertiesPresenterAdapter* _presenter;
+
+    OrganismProperty getProperty(int index) const;
 };
 
 

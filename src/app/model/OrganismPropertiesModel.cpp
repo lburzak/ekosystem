@@ -9,9 +9,18 @@ int OrganismPropertiesModel::rowCount(const QModelIndex &parent) const {
         return presenter()->getCount();
 }
 
+OrganismProperty OrganismPropertiesModel::getProperty(int index) const {
+    if (index == 0) {
+        return { "id", std::to_string(presenter()->getId()) };
+    } else {
+        return presenter()->getPropertyAt(index - 1);
+    }
+}
+
 QVariant OrganismPropertiesModel::data(const QModelIndex &index, int role) const {
     if (presenter()) {
-        OrganismProperty property = presenter()->getPropertyAt(index.row());
+
+        OrganismProperty property = getProperty(index.row());
 
         switch (role) {
             case PropertyKey:

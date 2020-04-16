@@ -43,6 +43,15 @@ OrganismProperty OrganismPropertiesPresenter::getPropertyAt(int index) {
     return { *it, bundle.get(*it) };
 }
 
+unsigned OrganismPropertiesPresenter::getId() {
+    Organism* organism = fetchOrganismAt(space, store.getState().selectedTile, store.getState().selectedOrganism);
+
+    if (organism)
+        return organism->getId();
+
+    return 0;
+}
+
 void OrganismPropertiesPresenter::attach(OrganismPropertiesView *view) {
     this->view = view;
     store.subscribe(this);
@@ -53,4 +62,8 @@ void OrganismPropertiesPresenter::onEvent(ApplicationEvent event) {
         case ORGANISM_SELECTED:
             if (view) view->reloadList();
     }
+}
+
+bool OrganismPropertiesPresenter::hasSelectedOrganism() {
+    return store.getState().selectedOrganism != SELECTED_ORGANISM_NO_ORGANISM;
 }

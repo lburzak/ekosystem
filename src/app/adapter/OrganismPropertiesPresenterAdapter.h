@@ -13,9 +13,12 @@ class OrganismPropertiesPresenterAdapter : public QObject {
     Q_OBJECT
 
 public:
-    explicit OrganismPropertiesPresenterAdapter(OrganismPropertiesPresenter& presenter) : presenter(presenter) {};
-    int getCount() { return presenter.getCount(); };
-    OrganismProperty getPropertyAt(int index) { return presenter.getPropertyAt(index); };
+    explicit OrganismPropertiesPresenterAdapter(OrganismPropertiesPresenter& presenter) : presenter(presenter) {}
+    int getCount() { return presenter.getCount(); }
+    OrganismProperty getPropertyAt(int index) { return presenter.getPropertyAt(index); }
+    unsigned getId() { return presenter.getId(); }
+    bool hasSelectedOrganism() { return presenter.hasSelectedOrganism(); }
+
     void attach(OrganismPropertiesView* view) { presenter.attach(view); }
 
 private:
