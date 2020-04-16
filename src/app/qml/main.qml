@@ -7,8 +7,8 @@ import com.polydome.ekosystem 1.0
 
 Window {
     visible: true
-    width: 800
-    height: 480
+    width: 1024
+    height: 700
     title: qsTr("Hello World")
 
     RowLayout {
