@@ -11,15 +11,26 @@ Window {
     height: 480
     title: qsTr("Hello World")
 
-    ColumnLayout {
-        RowLayout {
-            SpaceGrid {}
-            OrganismsList {
-                Layout.fillHeight: true
+    RowLayout {
+        anchors.fill: parent
+
+        Frame {
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+
+            SpaceGrid {
+                anchors.centerIn: parent
             }
         }
 
-        PropertiesList {}
-    }
 
+        ColumnLayout {
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+
+            OrganismsList {}
+
+            PropertiesList {}
+        }
+    }
 }
