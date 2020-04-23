@@ -35,6 +35,10 @@ private:
     OrganismsListView* view;
 
     int currentOrganism = store.getState().selectedOrganism;
+
+    void synchronizeSelectedOrganism(ApplicationState state);
+
+    void synchronize(ApplicationState state);
 };
 
 

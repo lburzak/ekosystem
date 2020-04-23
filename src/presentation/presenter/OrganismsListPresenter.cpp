@@ -38,6 +38,15 @@ OrganismEntry OrganismsListPresenter::entryAt(int index) {
 void OrganismsListPresenter::attach(OrganismsListView *view) {
     this->view = view;
     store.subscribe(this);
+    synchronize(store.getState());
+}
+
+void OrganismsListPresenter::synchronizeSelectedOrganism(ApplicationState state) {
+    currentOrganism = state.selectedOrganism;
+}
+
+void OrganismsListPresenter::synchronize(ApplicationState state) {
+    synchronizeSelectedOrganism(state);
 }
 
 void OrganismsListPresenter::onEvent(ApplicationEvent event) {
@@ -49,7 +58,7 @@ void OrganismsListPresenter::onEvent(ApplicationEvent event) {
         case ORGANISM_SELECTED:
             if (view)
                 view->onOrganismSelectedChange(currentOrganism);
-                currentOrganism = store.getState().selectedOrganism;
+                synchronizeSelectedOrganism(store.getState());
                 view->onOrganismSelectedChange(currentOrganism);
         break;
     }
