@@ -33,8 +33,8 @@ private:
 
     int currentTile = store.getState().selectedTile;
 
-    void onTileSelected();
-    void synchronizeWithState();
+    void synchronize(ApplicationState state);
+    void synchronizeCurrentTile(ApplicationState state);
 };
 
 
