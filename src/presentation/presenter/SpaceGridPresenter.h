@@ -32,6 +32,9 @@ private:
     SpaceGridView* view;
 
     int currentTile = store.getState().selectedTile;
+
+    void onTileSelected();
+    void synchronizeWithState();
 };
 
 

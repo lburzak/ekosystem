@@ -26,14 +26,23 @@ void SpaceGridPresenter::selectTile(int index) {
 void SpaceGridPresenter::attach(SpaceGridView *view) {
     this->view = view;
     store.subscribe(this);
+    synchronizeWithState();
+}
+
+void SpaceGridPresenter::synchronizeWithState() {
+    onTileSelected();
+}
+
+void SpaceGridPresenter::onTileSelected() {
+    view->onTileSelectedChange(currentTile);
+    currentTile = store.getState().selectedTile;
+    view->onTileSelectedChange(currentTile);
 }
 
 void SpaceGridPresenter::onEvent(ApplicationEvent event) {
     switch (event) {
         case ApplicationEvent::TILE_SELECTED:
-            view->onTileSelectedChange(currentTile);
-            currentTile = store.getState().selectedTile;
-            view->onTileSelectedChange(currentTile);
+            onTileSelected();
         break;
     }
 }
