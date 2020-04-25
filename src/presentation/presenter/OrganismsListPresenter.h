@@ -35,6 +35,7 @@ private:
     OrganismsListView* view;
 
     int currentOrganism = store.getState().selectedOrganism;
+    int tileContainingSelectedOrganism = -1;
 
     void synchronizeSelectedOrganism(ApplicationState state);
 

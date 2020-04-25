@@ -43,6 +43,7 @@ void OrganismsListPresenter::attach(OrganismsListView *view) {
 
 void OrganismsListPresenter::synchronizeSelectedOrganism(ApplicationState state) {
     currentOrganism = state.selectedOrganism;
+    tileContainingSelectedOrganism = state.selectedTile;
 }
 
 void OrganismsListPresenter::synchronize(ApplicationState state) {
@@ -65,7 +66,8 @@ void OrganismsListPresenter::onEvent(ApplicationEvent event) {
 }
 
 bool OrganismsListPresenter::isSelected(int index) {
-    return store.getState().selectedOrganism == index;
+    return store.getState().selectedTile == tileContainingSelectedOrganism
+        && store.getState().selectedOrganism == index;
 }
 
 void OrganismsListPresenter::select(int index) {
