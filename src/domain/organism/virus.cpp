@@ -20,6 +20,10 @@ void Virus::attemptAttack(set<Body*> availableBodies) {
     }
 }
 
+string Virus::getVisibleName() {
+    return "Virus";
+}
+
 InfoBundle Virus::bundleInfo() {
     InfoBundle bundle = Organism::bundleInfo();
     bundle.set("hasVictim", to_string(victim != nullptr));

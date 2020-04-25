@@ -14,6 +14,7 @@ class Organism : public Body {
 public:
     Organism(unsigned mass) : Body(mass) {}
     virtual void onTick(Vicinity vicinity) = 0;
+    virtual string getVisibleName();
     void onDecomposition();
     bool isAlive() { return alive; };
     virtual InfoBundle bundleInfo();

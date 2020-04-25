@@ -24,7 +24,11 @@ InfoBundle Organism::bundleInfo() {
 
     bundle.set("alive", to_string(alive));
     bundle.set("massLeft", to_string(mass));
-    bundle.set(BUNDLE_LABEL_SPECIES, "Uncategorized");
+    bundle.set(BUNDLE_LABEL_SPECIES, getVisibleName());
 
     return bundle;
+}
+
+string Organism::getVisibleName() {
+    return "Uncategorized";
 }

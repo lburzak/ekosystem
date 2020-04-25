@@ -6,3 +6,7 @@ void Human::eat() { cout << "eating!" << endl; }
 void Human::onTick(Vicinity vicinity) {
     // not implemented
 }
+
+string Human::getVisibleName() {
+    return "Human";
+}

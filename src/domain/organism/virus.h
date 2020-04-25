@@ -10,6 +10,9 @@ class Virus : public Organism {
 public:
     Virus() : Organism(2) {}
     virtual InfoBundle bundleInfo() override;
+
+    string getVisibleName() override;
+
 private:
     void onTick(Vicinity vicinity) override;
     void attemptAttack(set<Body*> availableBodies);
