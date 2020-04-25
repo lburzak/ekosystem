@@ -28,6 +28,8 @@ Window {
             Layout.fillHeight: true
             Layout.fillWidth: true
 
+            AddOrganismBar {}
+
             OrganismsList {}
 
             PropertiesList {}

@@ -3,5 +3,6 @@
         <file>main.qml</file>
         <file>SpaceGrid.qml</file>
         <file>OrganismsList.qml</file>
+        <file>AddOrganismBar.qml</file>
     </qresource>
 </RCC>
