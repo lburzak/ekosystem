@@ -3,8 +3,9 @@
 
 
 enum EntityType {
-    HUMAN,
-    VIRUS
+    HUMAN = 0,
+    VIRUS,
+    _LENGTH
 };
 
 #endif // ENTITYTYPE_H

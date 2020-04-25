@@ -4,10 +4,10 @@
 #include "domain/simulation/simulation.h"
 #include "presentation/presenter/OrganismsListPresenter.h"
 #include "presentation/presenter/OrganismPropertiesPresenter.h"
+#include "presentation/presenter/AddOrganismPresenter.h"
 #include "app/QtApplication.h"
 
 using namespace std;
-
 
 int main(int argc, char *argv[]) {
     BodyRegistry bodyRegistry;
@@ -26,22 +26,7 @@ int main(int argc, char *argv[]) {
     SpaceGridPresenter spaceGridPresenter(applicationStore, space);
     OrganismsListPresenter organismsListPresenter(space, applicationStore);
     OrganismPropertiesPresenter organismPropertiesPresenter(applicationStore, space);
+    AddOrganismPresenter addOrganismPresenter(simulation, applicationStore);
 
-    applicationStore.setSelectedTile(11);
-    applicationStore.setSelectedOrganism(0);
-
-    cout << organismPropertiesPresenter.getCount() << endl;
-
-    for (int i = 0; i < organismPropertiesPresenter.getCount(); i++) {
-        auto prop = organismPropertiesPresenter.getPropertyAt(i);
-        cout << prop.key << " => " << prop.value << endl;
-    }
-
-//    for (int i = 0; i <= 5; i++) {
-//        simulation.tick();
-//    }
-
-
-//    cout << "Hello World!" << endl;
     return QtApplication::run(argc, argv, spaceGridPresenter, organismsListPresenter, organismPropertiesPresenter);
 }
