@@ -23,8 +23,21 @@ Frame {
                 width: 50;
                 height: width;
 
-                border.width: (model.selected) ? 4 : 1
-                border.color: (model.selected) ? "#1565C0" : "#d0cfd1"
+                Rectangle {
+                    anchors.centerIn: parent;
+                    radius: 360
+                    width: model.number * 3 < parent.width ? model.number * 3 : parent.width
+                    color: "#FF8A80"
+                    height: width
+                    clip: true
+                }
+
+                Rectangle {
+                    anchors.fill: parent
+                    color: "transparent"
+                    border.width: (model.selected) ? 2 : 1
+                    border.color: (model.selected) ? "#1565C0" : "#d0cfd1"
+                }
 
                 Text {
                     anchors.centerIn: parent
@@ -38,4 +51,4 @@ Frame {
                 }
             }
     }
-    }
+}
