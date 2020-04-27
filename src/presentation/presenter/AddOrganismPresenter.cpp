@@ -21,20 +21,14 @@ string AddOrganismPresenter::getOptionAt(int position) {
     return entityTypeToString(static_cast<EntityType>(position));
 }
 
-void AddOrganismPresenter::addSelectedOrganism() {
+void AddOrganismPresenter::addSelectedOrganism(int position) {
     if (store.getState().selectedTile < 0)
         return;
 
-    if (view) {
-        Coordinates coords = indexToCoordinates(store.getState().selectedTile);
-        simulation.spawn(static_cast<EntityType>(view->getCurrentOptionPosition()), coords.x, coords.y);
-    }
+    Coordinates coords = indexToCoordinates(store.getState().selectedTile);
+    simulation.spawn(static_cast<EntityType>(position), coords.x, coords.y);
 }
 
 int AddOrganismPresenter::getOptionsCount() {
     return EntityType::_LENGTH;
-}
-
-void AddOrganismPresenter::attach(AddOrganismView *view) {
-    this->view = view;
 }

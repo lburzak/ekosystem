@@ -8,7 +8,6 @@
 
 #include <set>
 #include <string>
-#include "presentation/view/AddOrgainsmView.h"
 #include "domain/simulation/simulation.h"
 #include "presentation/state/ApplicationStore.h"
 
@@ -18,11 +17,9 @@ public:
 
     string getOptionAt(int position);
     int getOptionsCount();
-    void addSelectedOrganism();
+    void addSelectedOrganism(int position);
 
-    void attach(AddOrganismView* view);
 private:
-    AddOrganismView* view = nullptr;
     Simulation& simulation;
     ApplicationStore& store;
 };

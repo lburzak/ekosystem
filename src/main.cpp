@@ -28,5 +28,6 @@ int main(int argc, char *argv[]) {
     OrganismPropertiesPresenter organismPropertiesPresenter(applicationStore, space);
     AddOrganismPresenter addOrganismPresenter(simulation, applicationStore);
 
-    return QtApplication::run(argc, argv, spaceGridPresenter, organismsListPresenter, organismPropertiesPresenter);
+    return QtApplication::run(argc, argv, spaceGridPresenter, organismsListPresenter, organismPropertiesPresenter,
+                              addOrganismPresenter);
 }
