@@ -8,6 +8,7 @@
 enum ApplicationEvent {
     TILE_SELECTED,
     ORGANISM_SELECTED,
+    ORGANISM_CREATED
 };
 
 #endif //EKOSYSTEM_APPLICATIONEVENT_H

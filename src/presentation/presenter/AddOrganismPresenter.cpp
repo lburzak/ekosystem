@@ -27,6 +27,8 @@ void AddOrganismPresenter::addSelectedOrganism(int position) {
 
     Coordinates coords = indexToCoordinates(store.getState().selectedTile);
     simulation.spawn(static_cast<EntityType>(position), coords.x, coords.y);
+
+    store.notifyOrganismCreated();
 }
 
 int AddOrganismPresenter::getOptionsCount() {

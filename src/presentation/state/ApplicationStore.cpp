@@ -27,3 +27,7 @@ void ApplicationStore::emitEvent(ApplicationEvent event) {
 ApplicationState ApplicationStore::getState() {
     return state;
 }
+
+void ApplicationStore::notifyOrganismCreated() {
+    emitEvent(ORGANISM_CREATED);
+}

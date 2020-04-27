@@ -57,10 +57,15 @@ void OrganismsListPresenter::onEvent(ApplicationEvent event) {
                 view->reloadList();
         break;
         case ORGANISM_SELECTED:
-            if (view)
+            if (view) {
                 view->onOrganismSelectedChange(currentOrganism);
                 synchronizeSelectedOrganism(store.getState());
                 view->onOrganismSelectedChange(currentOrganism);
+            }
+        break;
+        case ORGANISM_CREATED:
+            if (view)
+                view->reloadList();
         break;
     }
 }

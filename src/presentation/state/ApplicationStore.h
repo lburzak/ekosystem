@@ -16,6 +16,7 @@ public:
     ApplicationState getState();
     void setSelectedTile(int index);
     void setSelectedOrganism(int index);
+    void notifyOrganismCreated();
 
 private:
     ApplicationState state;
