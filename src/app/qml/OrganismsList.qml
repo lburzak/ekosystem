@@ -5,39 +5,54 @@ import QtQuick.Layouts 1.12
 
 import com.polydome.ekosystem 1.0
 
-Frame {
+ListView {
     Layout.fillHeight: true
-    ListView {
-        implicitWidth: 300;
-        implicitHeight: 300;
+    Layout.fillWidth: true
+    implicitWidth: 300;
+    implicitHeight: 300;
 
-        model: OrganismsListModel {
-            presenter: organismsListPresenter
+    clip: true
+
+    model: OrganismsListModel {
+        presenter: organismsListPresenter
+    }
+
+    delegate: Rectangle {
+        height: 40
+        width: parent.width
+
+        Rectangle {
+            height: 1
+            width: parent.width
+            color: "#d0cfd1"
+            anchors.bottom: parent.bottom
         }
 
-        delegate: Frame {
-            height: 40
-            width: parent.width
-            Rectangle {
-                visible: model.selected
-                color: "green"
-                anchors.fill: parent
-            }
+        Rectangle {
+            visible: model.selected
+            color: "lightgreen"
+            anchors.fill: parent
+        }
 
-            RowLayout {
-                Text {
-                    text: model.organismId
-                }
+        Text {
+            id: organismId
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            text: "ID:" + model.organismId
+        }
 
-                Text {
-                    text: model.species
-                }
-            }
+        Text {
+            id: species
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: organismId.right
+            anchors.leftMargin: 20
+            text: model.species
+        }
 
-            MouseArea {
-                anchors.fill: parent
-                onClicked: () => { organismsListPresenter.select(index) }
-            }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: () => { organismsListPresenter.select(index) }
         }
     }
 }
