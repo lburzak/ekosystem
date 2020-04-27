@@ -25,6 +25,8 @@ public:
     SpaceGridPresenterAdapter* presenter() const;;
     void setPresenter(SpaceGridPresenterAdapter* presenter);
 
+    void onOrganismsCountChange(int index) override;
+
 private:
     enum Role {
         Selected = Qt::UserRole,

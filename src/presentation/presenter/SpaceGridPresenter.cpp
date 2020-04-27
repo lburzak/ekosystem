@@ -44,5 +44,7 @@ void SpaceGridPresenter::onEvent(ApplicationEvent event) {
             synchronizeCurrentTile(store.getState());
             view->onTileSelectedChange(currentTile);
         break;
+        case ApplicationEvent::ORGANISM_CREATED_ON_CURRENT_TILE:
+            view->onOrganismsCountChange(currentTile);
     }
 }

@@ -63,7 +63,7 @@ void OrganismsListPresenter::onEvent(ApplicationEvent event) {
                 view->onOrganismSelectedChange(currentOrganism);
             }
         break;
-        case ORGANISM_CREATED:
+        case ORGANISM_CREATED_ON_CURRENT_TILE:
             if (view)
                 view->reloadList();
         break;

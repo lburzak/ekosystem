@@ -4,11 +4,6 @@
 
 #include "SpaceGridModel.h"
 
-void SpaceGridModel::onTileSelectedChange(int index) {
-    QModelIndex linearIndex = createIndex(index, 0);
-    dataChanged(linearIndex, linearIndex, QVector<int>() << Selected);
-}
-
 int SpaceGridModel::rowCount(const QModelIndex &parent) const {
     return _presenter ? _presenter->getTilesCount() : 0;
 }
@@ -41,4 +36,14 @@ SpaceGridPresenterAdapter *SpaceGridModel::presenter() const {
 void SpaceGridModel::setPresenter(SpaceGridPresenterAdapter *presenter) {
     _presenter = presenter;
     _presenter->attach(this);
+}
+
+void SpaceGridModel::onTileSelectedChange(int index) {
+    QModelIndex linearIndex = createIndex(index, 0);
+    dataChanged(linearIndex, linearIndex, QVector<int>() << Selected);
+}
+
+void SpaceGridModel::onOrganismsCountChange(int index) {
+    QModelIndex linearIndex = createIndex(index, 0);
+    dataChanged(linearIndex, linearIndex, QVector<int>() << Number);
 }
