@@ -42,7 +42,7 @@ Frame {
                 Text {
                     anchors.centerIn: parent
                     font.pixelSize: 14
-                    text: model.number
+                    text: model.number > 0 ? model.number : ""
                 }
 
                 MouseArea {
