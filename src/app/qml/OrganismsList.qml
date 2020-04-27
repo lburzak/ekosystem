@@ -8,7 +8,7 @@ import com.polydome.ekosystem 1.0
 ListView {
     Layout.fillHeight: true
     Layout.fillWidth: true
-    implicitWidth: 300;
+    Layout.maximumWidth: parent.width;
     implicitHeight: 300;
 
     clip: true
@@ -30,7 +30,7 @@ ListView {
 
         Rectangle {
             visible: model.selected
-            color: "lightgreen"
+            color: "#64B5F6"
             anchors.fill: parent
         }
 

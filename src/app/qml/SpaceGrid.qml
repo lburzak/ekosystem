@@ -22,10 +22,11 @@ Frame {
             Rectangle {
                 width: 50;
                 height: width;
-                color: (model.selected) ? "red" : "blue"
+
+                border.width: (model.selected) ? 4 : 1
+                border.color: (model.selected) ? "#1565C0" : "#d0cfd1"
 
                 Text {
-                    color: "white"
                     anchors.centerIn: parent
                     font.pixelSize: 14
                     text: model.number
