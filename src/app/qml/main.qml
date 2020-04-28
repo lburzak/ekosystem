@@ -13,6 +13,7 @@ Window {
 
     RowLayout {
         anchors.fill: parent
+        spacing: 0
 
         Rectangle {
             Layout.fillHeight: true
@@ -23,13 +24,32 @@ Window {
             }
         }
 
+        Rectangle {
+            width: 1
+            color: "black"
+            Layout.fillHeight: true
+        }
+
         ColumnLayout {
+            spacing: 0
             Layout.fillHeight: true
             Layout.fillWidth: true
 
             AddOrganismBar {}
 
+            Rectangle {
+                height: 1
+                color: "black"
+                width: 300
+            }
+
             OrganismsList {}
+
+            Rectangle {
+                height: 1
+                color: "black"
+                width: 300
+            }
 
             PropertiesList {}
         }
