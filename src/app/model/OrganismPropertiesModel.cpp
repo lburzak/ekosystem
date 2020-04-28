@@ -4,6 +4,8 @@
 
 #include "OrganismPropertiesModel.h"
 
+OrganismPropertiesModel::OrganismPropertiesModel(QObject* parent) : QAbstractListModel(parent) {}
+
 int OrganismPropertiesModel::rowCount(const QModelIndex &parent) const {
     if (presenter())
         return presenter()->getCount();

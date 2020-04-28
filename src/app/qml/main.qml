@@ -14,7 +14,7 @@ Window {
     RowLayout {
         anchors.fill: parent
 
-        Frame {
+        Rectangle {
             Layout.fillHeight: true
             Layout.fillWidth: true
 
@@ -22,7 +22,6 @@ Window {
                 anchors.centerIn: parent
             }
         }
-
 
         ColumnLayout {
             Layout.fillHeight: true

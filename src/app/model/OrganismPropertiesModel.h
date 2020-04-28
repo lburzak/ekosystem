@@ -14,6 +14,7 @@ class OrganismPropertiesModel : public QAbstractListModel, public OrganismProper
     Q_OBJECT
     Q_PROPERTY(OrganismPropertiesPresenterAdapter* presenter READ presenter WRITE setPresenter)
 public:
+    explicit OrganismPropertiesModel(QObject* parent = nullptr);
     QHash<int, QByteArray> roleNames() const override;
 
     int rowCount(const QModelIndex &parent) const override;
