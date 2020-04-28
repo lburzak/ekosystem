@@ -35,6 +35,17 @@ Window {
             Layout.fillHeight: true
             Layout.fillWidth: true
 
+            SimulationControlsBar {
+                Layout.preferredHeight: 24
+                Layout.maximumWidth: 300
+            }
+
+            Rectangle {
+                height: 1
+                color: "black"
+                width: 300
+            }
+
             AddOrganismBar {}
 
             Rectangle {

@@ -7,13 +7,14 @@
 
 #include "presentation/state/ApplicationStore.h"
 #include "presentation/presenter/SpaceGridPresenter.h"
+#include "presentation/presenter/SimulationControlsPresenter.h"
 
 class QtApplication {
 public:
-    static int run(int argc, char **argv, SpaceGridPresenter &spaceGridPresenter,
-                   OrganismsListPresenter &organismsListPresenter,
-                   OrganismPropertiesPresenter &organismPropertiesPresenter,
-                   AddOrganismPresenter &addOrganismPresenter);
+    static int
+    run(int argc, char **argv, SpaceGridPresenter &spaceGridPresenter, OrganismsListPresenter &organismsListPresenter,
+        OrganismPropertiesPresenter &organismPropertiesPresenter, AddOrganismPresenter &addOrganismPresenter,
+        SimulationControlsPresenter &simulationControlsPresenter);
 };
 
 

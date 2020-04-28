@@ -4,5 +4,6 @@
         <file>SpaceGrid.qml</file>
         <file>OrganismsList.qml</file>
         <file>AddOrganismBar.qml</file>
+        <file>SimulationControlsBar.qml</file>
     </qresource>
 </RCC>

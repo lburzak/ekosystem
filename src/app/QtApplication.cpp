@@ -10,6 +10,7 @@
 #include "app/adapter/OrganismsListPresenterAdapter.h"
 #include "app/adapter/OrganismPropertiesPresenterAdapter.h"
 #include "app/adapter/AddOrganismPresenterAdapter.h"
+#include "app/adapter/SimulationControlsPresenterAdapter.h"
 #include <QtGui/QGuiApplication>
 #include <QtQml/qqml.h>
 #include <QtQml/QQmlApplicationEngine>
@@ -38,7 +39,8 @@ void loadLayout(QQmlApplicationEngine& engine, const char* layoutUrl) {
 int QtApplication::run(int argc, char **argv, SpaceGridPresenter &spaceGridPresenter,
                        OrganismsListPresenter &organismsListPresenter,
                        OrganismPropertiesPresenter &organismPropertiesPresenter,
-                       AddOrganismPresenter& addOrganismPresenter) {
+                       AddOrganismPresenter &addOrganismPresenter,
+                       SimulationControlsPresenter &simulationControlsPresenter) {
     QGuiApplication app(argc, argv);
 
     registerTypes();
@@ -49,11 +51,13 @@ int QtApplication::run(int argc, char **argv, SpaceGridPresenter &spaceGridPrese
     OrganismsListPresenterAdapter organismsListPresenterAdapter(organismsListPresenter);
     OrganismPropertiesPresenterAdapter organismPropertiesPresenterAdapter(organismPropertiesPresenter);
     AddOrganismPresenterAdapter addOrganismPresenterAdapter(addOrganismPresenter);
+    SimulationControlsPresenterAdapter simulationControlsPresenterAdapter(simulationControlsPresenter);
 
     engine.rootContext()->setContextProperty(QStringLiteral("spaceGridPresenter"), &spaceGridPresenterAdapter);
     engine.rootContext()->setContextProperty(QStringLiteral("organismsListPresenter"), &organismsListPresenterAdapter);
     engine.rootContext()->setContextProperty(QStringLiteral("organismPropertiesPresenter"), &organismPropertiesPresenterAdapter);
     engine.rootContext()->setContextProperty(QStringLiteral("addOrganismPresenter"), &addOrganismPresenterAdapter);
+    engine.rootContext()->setContextProperty(QStringLiteral("simulationControlsPresenter"), &simulationControlsPresenterAdapter);
 
     const char* qrcUrl = "qrc:/main.qml";
     loadLayout(engine, "../src/app/qml/main.qml");
