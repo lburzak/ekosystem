@@ -11,6 +11,8 @@ ListView {
         Layout.maximumWidth: parent.width
         implicitHeight: 300
 
+        clip: true
+
         model: OrganismPropertiesModel {
             presenter: organismPropertiesPresenter
         }
@@ -19,18 +21,25 @@ ListView {
             height: 40
             width: parent.width
 
+            Rectangle {
+                height: 1
+                width: parent.width
+                color: "#d0cfd1"
+                anchors.bottom: parent.bottom
+            }
+
             RowLayout {
-                spacing: 5
+                spacing: 0
+                anchors.fill: parent
                 Text {
-                    Layout.alignment: Qt.AlignVCenter
-                    width: parent.width / 2
+                    Layout.maximumWidth: parent.width/2
+                    height: parent.height
                     text: model.propertyKey
                 }
 
-                TextField {
-                    Layout.alignment: Qt.AlignRight
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
+                Text {
+                    Layout.maximumWidth: parent.width/2
+                    height: parent.height
                     text: model.propertyValue
                 }
             }
