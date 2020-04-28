@@ -46,5 +46,9 @@ void SpaceGridPresenter::onEvent(ApplicationEvent event) {
         break;
         case ApplicationEvent::ORGANISM_CREATED_ON_CURRENT_TILE:
             view->onOrganismsCountChange(currentTile);
+        break;
+        case ApplicationEvent::SIMULATION_TICK:
+            view->onDataChange();
+        break;
     }
 }

@@ -9,6 +9,7 @@ class SpaceGridView {
 public:
     virtual void onTileSelectedChange(int index) = 0;
     virtual void onOrganismsCountChange(int index) = 0;
+    virtual void onDataChange() = 0;
 };
 
 #endif //EKOSYSTEM_SPACEGRIDVIEW_H

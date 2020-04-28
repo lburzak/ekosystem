@@ -31,3 +31,7 @@ ApplicationState ApplicationStore::getState() {
 void ApplicationStore::notifyOrganismCreated() {
     emitEvent(ORGANISM_CREATED_ON_CURRENT_TILE);
 }
+
+void ApplicationStore::notifySimulationTicked() {
+    emitEvent(SIMULATION_TICK);
+}

@@ -47,3 +47,8 @@ void SpaceGridModel::onOrganismsCountChange(int index) {
     QModelIndex linearIndex = createIndex(index, 0);
     dataChanged(linearIndex, linearIndex, QVector<int>() << Number);
 }
+
+void SpaceGridModel::onDataChange() {
+    beginResetModel();
+    endResetModel();
+}

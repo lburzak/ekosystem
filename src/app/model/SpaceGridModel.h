@@ -25,6 +25,8 @@ public:
     SpaceGridPresenterAdapter* presenter() const;;
     void setPresenter(SpaceGridPresenterAdapter* presenter);
 
+    void onDataChange() override;
+
     void onOrganismsCountChange(int index) override;
 
 private:

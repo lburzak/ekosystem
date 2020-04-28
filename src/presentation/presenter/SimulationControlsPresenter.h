@@ -6,14 +6,16 @@
 #define EKOSYSTEM_SIMULATIONCONTROLSPRESENTER_H
 
 #include "domain/simulation/simulation.h"
+#include "presentation/state/ApplicationStore.h"
 
 class SimulationControlsPresenter {
 public:
-    explicit SimulationControlsPresenter(Simulation& simulation);
+    SimulationControlsPresenter(Simulation &simulation, ApplicationStore &store);
     void tick();
 
 private:
     Simulation& simulation;
+    ApplicationStore& store;
 };
 
 
