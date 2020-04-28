@@ -46,12 +46,23 @@ void Simulation::tick() {
 }
 
 void Simulation::cleanUp() {
-    for (auto it = organisms.begin(); it != organisms.end();) {
+    int i = 0;
+    for (auto it = organisms.begin(); it != organisms.end(); i++) {
         if ((*it)->getMass() == 0) {
             Ekolog::getInstance().decomposed(*(*it));
-            it = organisms.erase(it);
+            Coordinates* coords = space.locate((*it)->getId());
+            if (coords) {
+                space.removeAt(coords->x, coords->y, i);
+                it = organisms.erase(it);
+            } else {
+                cout << "WARNING: Could not locate a body known to simulation" << endl;
+            }
         } else {
             it++;
         }
+    }
+
+    for (auto organism : organisms) {
+        cout << organism->getId() << endl;
     }
 }

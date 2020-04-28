@@ -6,6 +6,10 @@ void Space::putAt(Body& body, int x, int y) {
     idsMatrix[x][y].insert(body.getId());
 }
 
+void Space::removeAt(int x, int y, int pos) {
+    idsMatrix[x][y].erase(pos);
+}
+
 std::set<Body*> Space::getBodiesAt(int x, int y) {
     std::set<unsigned> bodies = idsMatrix[x][y];
     std::set<Body*> fetchedBodies;
