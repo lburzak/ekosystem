@@ -1,4 +1,3 @@
-#include <iostream>
 #include "domain/body/bodyregistry.h"
 #include "domain/space/space.h"
 #include "domain/simulation/simulation.h"
@@ -9,19 +8,18 @@
 
 using namespace std;
 
+int runQtApplication(int argc, char* argv[], Space& space, Simulation& simulation);
+
 int main(int argc, char *argv[]) {
     BodyRegistry bodyRegistry;
     Space space(bodyRegistry);
     VicinityProvider vicinityProvider(space);
     Simulation simulation(bodyRegistry, space, vicinityProvider);
 
-    simulation.spawn(EntityType::HUMAN, 1, 2);
-    simulation.spawn(EntityType::VIRUS, 1, 1);
-    simulation.spawn(EntityType::VIRUS, 1, 1);
-    simulation.spawn(EntityType::VIRUS, 1, 1);
-    simulation.spawn(EntityType::VIRUS, 1, 1);
-    simulation.spawn(EntityType::VIRUS, 1, 1);
+    return runQtApplication(argc, argv, space, simulation);
+}
 
+int runQtApplication(const int argc, char* argv[], Space& space, Simulation& simulation) {
     ApplicationStore applicationStore;
     SpaceGridPresenter spaceGridPresenter(applicationStore, space);
     OrganismsListPresenter organismsListPresenter(space, applicationStore);
