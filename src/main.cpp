@@ -6,6 +6,7 @@
 #include "presentation/presenter/OrganismPropertiesPresenter.h"
 #include "presentation/presenter/AddOrganismPresenter.h"
 #include "app/QtApplication.h"
+#include "common/RandomNumberGenerator.h"
 
 using namespace std;
 
@@ -15,9 +16,11 @@ int main(int argc, char *argv[]) {
     BodyRegistry bodyRegistry;
     Space space(bodyRegistry);
     BodyRepository organismRepository(space, bodyRegistry);
-    VicinityProvider vicinityProvider(space, organismRepository);
-
+    RandomNumberGenerator rng;
+    VicinityProvider vicinityProvider(space, organismRepository, rng);
     Simulation simulation(bodyRegistry, organismRepository, vicinityProvider);
+
+    rng.init();
 
     return runQtApplication(argc, argv, space, simulation);
 }

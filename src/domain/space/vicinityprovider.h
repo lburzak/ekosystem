@@ -6,13 +6,14 @@
 
 class VicinityProvider {
 public:
-    VicinityProvider(Space& space, BodyRepository &bodyRepository);
+    VicinityProvider(Space& space, BodyRepository &bodyRepository, RandomNumberGenerator& rng);
 
-    Vicinity* provideFor(Body& body);
+    Vicinity* provideFor(unsigned int bodyId);
 
 private:
     Space& space;
     BodyRepository& bodyRepository;
+    RandomNumberGenerator& rng;
 };
 
 #endif // VICINITYPROVIDER_H

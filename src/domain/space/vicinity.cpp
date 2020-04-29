@@ -18,9 +18,38 @@ std::set<Body*> Vicinity::getBodies() {
     return bodies;
 }
 
-Vicinity::Vicinity(Space &space, int x, int y, unsigned int ownerBodyId, BodyRepository &bodyRepository)
-: space(space), x(x), y(y), ownerBodyId(ownerBodyId), bodyRepository(bodyRepository) {}
+Vicinity::Vicinity(Space &space, int x, int y, unsigned int ownerBodyId, BodyRepository &bodyRepository, RandomNumberGenerator& rng)
+: space(space), x(x), y(y), ownerBodyId(ownerBodyId), bodyRepository(bodyRepository), rng(rng) {}
 
 void Vicinity::spawnNear(OrganismType type) {
     spawn(type, bodyRepository, x, y);
+}
+
+Coordinates randomCoordinatesNear(int x, int y, int range, int maxX, int maxY, RandomNumberGenerator& rng) {
+    Coordinates candidate = { x + rng.getInt(-range , range), y + rng.getInt(-range , range) };
+
+    if (candidate.x < 0) {
+        candidate.x += 2;
+    } else if (candidate.y < 0) {
+        candidate.y += 2;
+    }
+
+    if (candidate.x > maxX) {
+        candidate.x -= 2;
+    } else if (candidate.y > maxY) {
+        candidate.y -= 2;
+    }
+
+    return candidate;
+}
+
+void Vicinity::applyForce(int value) {
+    std::set<Body*> bodies = bodyRepository.getAt(x, y);
+    Coordinates coordinates{};
+    for (auto body : bodies) {
+        if (body->getMass() < value) {
+            coordinates = randomCoordinatesNear(x, y, 1, Space::WIDTH, Space::HEIGHT, rng);
+            bodyRepository.move(body->getId(), coordinates.x, coordinates.y);
+        }
+    }
 }

@@ -23,7 +23,7 @@ void Simulation::tick() {
     const std::set<Organism*> organisms = filterOrganisms(bodyRepository.getAll());
 
     for (auto organism : organisms) {
-        Vicinity* vicinity = vicinityProvider.provideFor(*organism);
+        Vicinity* vicinity = vicinityProvider.provideFor(organism->getId());
 
         assert (vicinity != nullptr);
 
@@ -35,7 +35,7 @@ void Simulation::tick() {
         }
     }
 
-    cleanUp(organisms);
+    cleanUp(filterOrganisms(bodyRepository.getAll()));
 }
 
 void Simulation::cleanUp(const std::set<Organism*> &organismsInSimulation) {

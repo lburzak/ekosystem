@@ -4,7 +4,7 @@
 void Human::eat() { cout << "eating!" << endl; }
 
 void Human::onTick(Vicinity vicinity) {
-    // not implemented
+    vicinity.applyForce(10);
 }
 
 string Human::getVisibleName() {

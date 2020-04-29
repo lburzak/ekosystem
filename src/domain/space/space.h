@@ -14,6 +14,7 @@ class Space {
 public:
     Space(BodyRegistry& bodyRegistry) : registry(bodyRegistry) {}
     void putAt(Body& body, int x, int y);
+    void putAt(unsigned id, int x, int y);
     void removeAt(int x, int y, int pos);
     std::set<Body*> getBodiesAt(int x, int y);
     Coordinates* locate(unsigned bodyId);
