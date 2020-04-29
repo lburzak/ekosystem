@@ -4,15 +4,15 @@
 #include "vicinity.h"
 
 
-
 class VicinityProvider {
 public:
-    VicinityProvider(Space& space) : space(space) {}
+    VicinityProvider(Space& space, BodyRepository &bodyRepository);
 
     Vicinity* provideFor(Body& body);
 
 private:
     Space& space;
+    BodyRepository& bodyRepository;
 };
 
 #endif // VICINITYPROVIDER_H
