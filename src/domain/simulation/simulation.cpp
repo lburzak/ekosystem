@@ -5,13 +5,6 @@
 #include "domain/logging/ekolog.h"
 #include <cassert>
 
-
-void Simulation::addOrganism(Organism* organism, int x, int y) {
-    bodyRegistry.registerBody(*organism);
-    space.putAt(*organism, x, y);
-    organisms.insert(organism);
-};
-
 void Simulation::spawn(EntityType type, int x, int y) {
     Organism* organism;
     switch (type) {
@@ -23,46 +16,38 @@ void Simulation::spawn(EntityType type, int x, int y) {
             organism = new Virus();
             break;
         }
+        default:
+            cerr << "NO SUCH ENTITY TYPE: " << type << endl;
+            return;
     }
 
-    addOrganism(organism, x, y);
-};
+    organismRepository.insert(*organism, x, y);
+}
 
 void Simulation::tick() {
-    for (auto it = organisms.begin(); it != organisms.end(); it++) {
-        Vicinity* vicinity = vicinityProvider.provideFor(*dynamic_cast<Body*>(*it));
+    const std::set<Organism*> organismsInSimulation = organismRepository.getAll();
+
+    for (auto organism : organismsInSimulation) {
+        Vicinity* vicinity = vicinityProvider.provideFor(*dynamic_cast<Body*>(organism));
 
         assert (vicinity != nullptr);
 
-        if ((*it)->isAlive()) {
-            Ekolog::getInstance().tick(*(*it));
-            (*it)->onTick(*vicinity);
+        if (organism->isAlive()) {
+            Ekolog::getInstance().tick(*organism);
+            organism->onTick(*vicinity);
         } else {
-            (*it)->onDecomposition();
+            organism->onDecomposition();
         }
     }
 
-    cleanUp();
+    cleanUp(organismsInSimulation);
 }
 
-void Simulation::cleanUp() {
-    int i = 0;
-    for (auto it = organisms.begin(); it != organisms.end(); i++) {
-        if ((*it)->getMass() == 0) {
-            Ekolog::getInstance().decomposed(*(*it));
-            Coordinates* coords = space.locate((*it)->getId());
-            if (coords) {
-                space.removeAt(coords->x, coords->y, i);
-                it = organisms.erase(it);
-            } else {
-                cout << "WARNING: Could not locate a body known to simulation" << endl;
-            }
-        } else {
-            it++;
+void Simulation::cleanUp(const std::set<Organism*> &organismsInSimulation) {
+    for (auto organism : organismsInSimulation) {
+        if (organism->getMass() == 0) {
+            organismRepository.removeById(organism->getId());
+            Ekolog::getInstance().decomposed(*organism);
         }
-    }
-
-    for (auto organism : organisms) {
-        cout << organism->getId() << endl;
     }
 }

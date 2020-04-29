@@ -7,7 +7,10 @@ void Space::putAt(Body& body, int x, int y) {
 }
 
 void Space::removeAt(int x, int y, int pos) {
-    idsMatrix[x][y].erase(pos);
+    auto it = idsMatrix[x][y].begin();
+    for (int i = 0; it != idsMatrix[x][y].end() && i != pos; it++, i++);
+
+    idsMatrix[x][y].erase(it);
 }
 
 std::set<Body*> Space::getBodiesAt(int x, int y) {
@@ -20,6 +23,10 @@ std::set<Body*> Space::getBodiesAt(int x, int y) {
     }
 
     return fetchedBodies;
+}
+
+std::set<unsigned> Space::getIdsAt(int x, int y) {
+    return idsMatrix[x][y];
 }
 
 Coordinates* Space::locate(unsigned bodyId) {

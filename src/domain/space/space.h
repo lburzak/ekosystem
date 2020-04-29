@@ -17,6 +17,7 @@ public:
     void removeAt(int x, int y, int pos);
     std::set<Body*> getBodiesAt(int x, int y);
     Coordinates* locate(unsigned bodyId);
+    std::set<unsigned int> getIdsAt(int x, int y);
 
     static int const WIDTH = 10;
     static int const HEIGHT = 10;
