@@ -20,7 +20,6 @@ RowLayout {
         model: AddOrganismBarModel {
             presenter: addOrganismPresenter
         }
-//        model: ["raz", "dwa", "trze"]
     }
 
     Button {
