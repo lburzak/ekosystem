@@ -14,6 +14,10 @@ public:
     void eat();
 
     string getVisibleName() override;
+
+private:
+    const int COUGH_COOLDOWN_BASE = 4;
+    int coughCooldown = COUGH_COOLDOWN_BASE;
 };
 
 #endif // HUMAN_H

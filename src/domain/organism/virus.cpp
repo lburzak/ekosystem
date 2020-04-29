@@ -3,7 +3,8 @@
 
 
 void Virus::onTick(Vicinity vicinity) {
-    if (victim == nullptr) attemptAttack(vicinity.getBodies());
+    victim = nullptr;
+    attemptAttack(vicinity.getBodies());
     if (victim == nullptr) die();
     if (victim) {
         vicinity.spawnNear(OrganismType::VIRUS);

@@ -6,7 +6,7 @@ bool Vicinity::canMoveTo(Direction direction) {
 }
 
 std::set<Body*> Vicinity::getBodies() {
-    std::set<Body*> bodies = space.getBodiesAt(x, y);
+    std::set<Body*> bodies = bodyRepository.getAt(x, y);
 
     for (auto it = bodies.begin(); it != bodies.end(); it++) {
         if ((*it)->getId() == ownerBodyId) {
