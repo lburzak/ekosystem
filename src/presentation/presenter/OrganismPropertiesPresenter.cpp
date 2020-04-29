@@ -60,6 +60,7 @@ void OrganismPropertiesPresenter::attach(OrganismPropertiesView *view) {
 void OrganismPropertiesPresenter::onEvent(ApplicationEvent event) {
     switch (event) {
         case ORGANISM_SELECTED:
+        case SIMULATION_TICK:
             if (view) view->reloadList();
     }
 }
