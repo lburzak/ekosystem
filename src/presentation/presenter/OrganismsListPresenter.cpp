@@ -67,6 +67,9 @@ void OrganismsListPresenter::onEvent(ApplicationEvent event) {
             if (view)
                 view->reloadList();
         break;
+        case SIMULATION_TICK:
+            if (view)
+                view->reloadList();
     }
 }
 
