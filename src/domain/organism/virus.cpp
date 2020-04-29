@@ -5,6 +5,9 @@
 void Virus::onTick(Vicinity vicinity) {
     if (victim == nullptr) attemptAttack(vicinity.getBodies());
     if (victim == nullptr) die();
+    if (victim) {
+        vicinity.spawnNear(OrganismType::VIRUS);
+    }
 }
 
 void Virus::attack(Human *human) {
