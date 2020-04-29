@@ -1,7 +1,7 @@
 #include "domain/body/bodyregistry.h"
 #include "domain/space/space.h"
 #include "domain/simulation/simulation.h"
-#include "domain/repository/OrganismRepository.h"
+#include "domain/repository/BodyRepository.h"
 #include "presentation/presenter/OrganismsListPresenter.h"
 #include "presentation/presenter/OrganismPropertiesPresenter.h"
 #include "presentation/presenter/AddOrganismPresenter.h"
@@ -14,8 +14,8 @@ int runQtApplication(int argc, char* argv[], Space& space, Simulation& simulatio
 int main(int argc, char *argv[]) {
     BodyRegistry bodyRegistry;
     Space space(bodyRegistry);
-    VicinityProvider vicinityProvider(space);
-    OrganismRepository organismRepository(space, bodyRegistry);
+    BodyRepository organismRepository(space, bodyRegistry);
+    VicinityProvider vicinityProvider(space, organismRepository);
 
     Simulation simulation(bodyRegistry, organismRepository, vicinityProvider);
 

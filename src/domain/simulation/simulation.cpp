@@ -5,14 +5,25 @@
 #include "domain/organism/spawn.h"
 
 void Simulation::spawnEntity(OrganismType type, int x, int y) {
-    spawn(type, organismRepository, x, y);
+    spawn(type, bodyRepository, x, y);
+}
+
+std::set<Organism*> filterOrganisms(const std::set<Body*>& bodies) {
+    std::set<Organism*> organisms;
+
+    Organism* organism;
+    for (auto body : bodies)
+        if ((organism = dynamic_cast<Organism*>(body)))
+            organisms.insert(organism);
+
+    return organisms;
 }
 
 void Simulation::tick() {
-    const std::set<Organism*> organismsInSimulation = organismRepository.getAll();
+    const std::set<Organism*> organisms = filterOrganisms(bodyRepository.getAll());
 
-    for (auto organism : organismsInSimulation) {
-        Vicinity* vicinity = vicinityProvider.provideFor(*dynamic_cast<Body*>(organism));
+    for (auto organism : organisms) {
+        Vicinity* vicinity = vicinityProvider.provideFor(*organism);
 
         assert (vicinity != nullptr);
 
@@ -24,13 +35,13 @@ void Simulation::tick() {
         }
     }
 
-    cleanUp(organismsInSimulation);
+    cleanUp(organisms);
 }
 
 void Simulation::cleanUp(const std::set<Organism*> &organismsInSimulation) {
     for (auto organism : organismsInSimulation) {
         if (organism->getMass() == 0) {
-            organismRepository.removeById(organism->getId());
+            bodyRepository.removeById(organism->getId());
             Ekolog::getInstance().decomposed(*organism);
         }
     }

@@ -6,13 +6,13 @@
 #include "domain/space/space.h"
 #include "domain/space/vicinityprovider.h"
 #include "domain/organism/organism.h"
-#include "domain/repository/OrganismRepository.h"
+#include "domain/repository/BodyRepository.h"
 
 class Simulation {
 public:
-    Simulation(BodyRegistry& bodyRegistry, OrganismRepository& organismRepository, VicinityProvider& vicinityProvider)
+    Simulation(BodyRegistry& bodyRegistry, BodyRepository& bodyRepository, VicinityProvider& vicinityProvider)
         : bodyRegistry(bodyRegistry),
-          organismRepository(organismRepository),
+          bodyRepository(bodyRepository),
           vicinityProvider(vicinityProvider)
     {}
 
@@ -21,7 +21,7 @@ public:
 
 private:
     BodyRegistry& bodyRegistry;
-    OrganismRepository& organismRepository;
+    BodyRepository& bodyRepository;
     VicinityProvider& vicinityProvider;
     std::set<Organism*> organisms;
 
