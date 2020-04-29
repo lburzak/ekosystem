@@ -62,3 +62,7 @@ void BodyRepository::move(unsigned int id, int targetX, int targetY) {
         space.putAt(result.id, targetX, targetY);
     }
 }
+
+int BodyRepository::countAt(int x, int y) {
+    return getAt(x, y).size();
+}

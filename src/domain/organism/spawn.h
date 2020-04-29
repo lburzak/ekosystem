@@ -8,7 +8,7 @@
 #include "OrganismType.h"
 #include "domain/repository/BodyRepository.h"
 
-void spawn(OrganismType type, BodyRepository& organismRepository, int x, int y);
+void spawn(OrganismType type, BodyRepository& bodyRepository, int x, int y);
 
 
 #endif //EKOSYSTEM_SPAWN_H

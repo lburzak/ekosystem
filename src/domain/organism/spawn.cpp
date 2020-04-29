@@ -7,7 +7,7 @@
 #include "domain/organism/virus.h"
 #include "domain/repository/BodyRepository.h"
 
-void spawn(OrganismType type, BodyRepository& organismRepository, int x, int y) {
+void spawn(OrganismType type, BodyRepository& bodyRepository, int x, int y) {
     Organism* organism;
     switch (type) {
         case OrganismType::HUMAN:{
@@ -23,5 +23,6 @@ void spawn(OrganismType type, BodyRepository& organismRepository, int x, int y) 
             return;
     }
 
-    organismRepository.insert(*organism, x, y);
+    if (bodyRepository.countAt(x, y) < 30)
+        bodyRepository.insert(*organism, x, y);
 }

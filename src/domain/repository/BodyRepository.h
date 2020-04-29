@@ -17,6 +17,7 @@ public:
     void removeById(unsigned id);
     void move(unsigned id, int targetX, int targetY);
     void insert(Body& body, int x, int y);
+    int countAt(int x, int y);
 private:
     struct FindByIdResult {
         unsigned id;
