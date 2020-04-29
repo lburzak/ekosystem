@@ -1,7 +1,7 @@
 #ifndef SIMULATION_H
 #define SIMULATION_H
 
-#include "entitytype.h"
+#include "domain/organism/OrganismType.h"
 #include "domain/body/bodyregistry.h"
 #include "domain/space/space.h"
 #include "domain/space/vicinityprovider.h"
@@ -16,7 +16,7 @@ public:
           vicinityProvider(vicinityProvider)
     {}
 
-    void spawn(EntityType type, int x, int y);
+    void spawnEntity(OrganismType type, int x, int y);
     void tick();
 
 private:

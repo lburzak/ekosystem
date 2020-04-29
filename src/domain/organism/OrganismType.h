@@ -1,8 +1,7 @@
 #ifndef ENTITYTYPE_H
 #define ENTITYTYPE_H
 
-
-enum EntityType {
+enum OrganismType {
     HUMAN = 0,
     VIRUS,
     _LENGTH

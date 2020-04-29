@@ -1,27 +1,11 @@
 #include "simulation.h"
 #include "domain/organism/organism.h"
-#include "domain/organism/virus.h"
-#include "domain/organism/human.h"
 #include "domain/logging/ekolog.h"
 #include <cassert>
+#include "domain/organism/spawn.h"
 
-void Simulation::spawn(EntityType type, int x, int y) {
-    Organism* organism;
-    switch (type) {
-        case EntityType::HUMAN:{
-            organism = new Human();
-            break;
-        }
-        case EntityType::VIRUS:{
-            organism = new Virus();
-            break;
-        }
-        default:
-            cerr << "NO SUCH ENTITY TYPE: " << type << endl;
-            return;
-    }
-
-    organismRepository.insert(*organism, x, y);
+void Simulation::spawnEntity(OrganismType type, int x, int y) {
+    spawn(type, organismRepository, x, y);
 }
 
 void Simulation::tick() {

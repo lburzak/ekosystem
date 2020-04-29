@@ -3,13 +3,13 @@
 //
 
 #include "AddOrganismPresenter.h"
-#include "domain/simulation/entitytype.h"
+#include "domain/organism/OrganismType.h"
 #include "presentation/common/GridUtils.h"
 
 AddOrganismPresenter::AddOrganismPresenter(Simulation &simulation, ApplicationStore& store)
     : simulation(simulation), store(store) {}
 
-std::string entityTypeToString(EntityType type) {
+std::string entityTypeToString(OrganismType type) {
     switch (type) {
         case HUMAN: return "Human";
         case VIRUS: return "Virus";
@@ -18,7 +18,7 @@ std::string entityTypeToString(EntityType type) {
 }
 
 string AddOrganismPresenter::getOptionAt(int position) {
-    return entityTypeToString(static_cast<EntityType>(position));
+    return entityTypeToString(static_cast<OrganismType>(position));
 }
 
 void AddOrganismPresenter::addSelectedOrganism(int position) {
@@ -26,11 +26,11 @@ void AddOrganismPresenter::addSelectedOrganism(int position) {
         return;
 
     Coordinates coords = indexToCoordinates(store.getState().selectedTile);
-    simulation.spawn(static_cast<EntityType>(position), coords.x, coords.y);
+    simulation.spawnEntity(static_cast<OrganismType>(position), coords.x, coords.y);
 
     store.notifyOrganismCreated();
 }
 
 int AddOrganismPresenter::getOptionsCount() {
-    return EntityType::_LENGTH;
+    return OrganismType::_LENGTH;
 }
