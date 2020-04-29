@@ -1,15 +1,13 @@
 #include "bodynotinspaceexception.h"
 #include "space.h"
 #include "domain/body/body.h"
-#include "iostream"
 
 void Space::putAt(Body& body, int x, int y) {
     idsMatrix[x][y].insert(body.getId());
 }
 
 void Space::removeAt(int x, int y, int pos) {
-    std::cout << "removing " << x << " " << y << " " << pos;
-         auto it = idsMatrix[x][y].begin();
+     auto it = idsMatrix[x][y].begin();
     for (int i = 0; it != idsMatrix[x][y].end() && i != pos; it++, i++);
 
     if (it != idsMatrix[x][y].end())
