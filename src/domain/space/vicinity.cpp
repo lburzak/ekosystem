@@ -1,5 +1,6 @@
 #include "vicinity.h"
 #include "domain/organism/spawn.h"
+#include "cmath"
 
 bool Vicinity::canMoveTo(Direction direction) {
     return direction == Direction::UP;
@@ -26,19 +27,22 @@ void Vicinity::spawnNear(OrganismType type) {
 }
 
 Coordinates randomCoordinatesNear(int x, int y, int range, int maxX, int maxY, RandomNumberGenerator& rng) {
-    Coordinates candidate = { x + rng.getInt(-range , range), y + rng.getInt(-range , range) };
+    Coordinates candidate = {
+            x + rng.getInt(-range, range),
+            y + rng.getInt(-range, range)
+    };
 
-    if (candidate.x < 0) {
-        candidate.x += 2;
-    } else if (candidate.y < 0) {
-        candidate.y += 2;
-    }
+    if (candidate.x < 0)
+        candidate.x = 0;
 
-    if (candidate.x > maxX) {
-        candidate.x -= 2;
-    } else if (candidate.y > maxY) {
-        candidate.y -= 2;
-    }
+    if (candidate.y < 0)
+        candidate.y = 0;
+
+    if (candidate.x >= maxX)
+        candidate.x = maxX;
+
+    if (candidate.y >= maxY)
+        candidate.y = maxY;
 
     return candidate;
 }
@@ -48,7 +52,7 @@ void Vicinity::applyForce(int value) {
     Coordinates coordinates{};
     for (auto body : bodies) {
         if (body->getMass() < value) {
-            coordinates = randomCoordinatesNear(x, y, 1, Space::WIDTH, Space::HEIGHT, rng);
+            coordinates = randomCoordinatesNear(x, y, 1, Space::WIDTH - 1, Space::HEIGHT - 1, rng);
             bodyRepository.move(body->getId(), coordinates.x, coordinates.y);
         }
     }
