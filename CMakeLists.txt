@@ -14,6 +14,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Qt5 COMPONENTS Core Quick REQUIRED)
 
 add_executable(ekosystem
+        src/app/qml/qml.qrc
         src/main.cpp
         src/domain/body/body.cpp
         src/domain/body/bodyregistry.cpp
