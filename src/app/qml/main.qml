@@ -9,7 +9,7 @@ Window {
     visible: true
     width: 1024
     height: 700
-    title: qsTr("Hello World")
+    title: qsTr("Ekosystem")
 
     RowLayout {
         anchors.fill: parent
