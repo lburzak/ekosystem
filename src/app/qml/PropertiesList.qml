@@ -30,17 +30,34 @@ ListView {
 
             RowLayout {
                 spacing: 0
-                anchors.fill: parent
-                Text {
-                    Layout.maximumWidth: parent.width/2
+                height: parent.height - 1
+                width: parent.width
+                Rectangle {
+                    width: parent.width / 2
                     height: parent.height
-                    text: model.propertyKey
+
+                    Text {
+                        x: 12
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: model.propertyKey
+                    }
                 }
 
-                Text {
-                    Layout.maximumWidth: parent.width/2
+                Rectangle {
                     height: parent.height
-                    text: model.propertyValue
+                    width: 1
+                    color: "#d0cfd1"
+                }
+
+                Rectangle {
+                    width: parent.width / 2
+                    height: parent.height
+
+                    Text {
+                        x: 12
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: model.propertyValue
+                    }
                 }
             }
         }
