@@ -35,7 +35,8 @@ SpaceGridPresenterAdapter *SpaceGridModel::presenter() const {
 
 void SpaceGridModel::setPresenter(SpaceGridPresenterAdapter *presenter) {
     _presenter = presenter;
-    _presenter->attach(this);
+    if (_presenter)
+        _presenter->attach(this);
 }
 
 void SpaceGridModel::onTileSelectedChange(int index) {

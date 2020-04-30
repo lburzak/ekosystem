@@ -60,6 +60,13 @@ int QtApplication::run(int argc, char **argv, SpaceGridPresenter &spaceGridPrese
     engine.rootContext()->setContextProperty(QStringLiteral("simulationControlsPresenter"), &simulationControlsPresenterAdapter);
 
     const char* qrcUrl = "qrc:/main.qml";
+    const QUrl url(QStringLiteral("qrc:/main.qml"));
+    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
+                     &app, [url](QObject *obj, const QUrl &objUrl) {
+                if (!obj && url == objUrl)
+                    QCoreApplication::exit(-1);
+            }, Qt::QueuedConnection);
+
     loadLayout(engine, qrcUrl);
 
     return app.exec();

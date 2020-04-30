@@ -45,7 +45,8 @@ OrganismsListPresenterAdapter *OrganismsListModel::presenter() const {
 
 void OrganismsListModel::setPresenter(OrganismsListPresenterAdapter *presenter) {
     _presenter = presenter;
-    _presenter->attach(this);
+    if (_presenter)
+        _presenter->attach(this);
 }
 
 void OrganismsListModel::reloadList() {
